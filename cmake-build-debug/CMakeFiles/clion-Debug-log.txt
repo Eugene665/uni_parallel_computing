@@ -1,1 +1,0 @@
-CMakeLists.txt not found in /home/eugene/uni_parallel_computing Select CMakeLists.txt
