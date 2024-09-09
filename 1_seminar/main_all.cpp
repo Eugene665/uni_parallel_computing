@@ -1,4 +1,4 @@
-
+#include <vector>
 #include <iostream>
 using namespace std;
 
@@ -18,7 +18,7 @@ class BubbleSort : public Sort {
 public:
   // Переопределение функции
     void sort(vector<int>& arr) override {
-        int size = arr.size()
+        int size = arr.size();
         // Проходим по всему списку
         for (int i = 0; i < size - 1; i++) {
         // Проходим списку без последних элементов,
@@ -34,7 +34,7 @@ public:
 };
 
 int main() {
-    vector<int> vec = {2, 3, 1, 4, 5};  // Создание вектора
+    vector<int> vec = {6, 10, 1, 3, 2};  // Создание вектора
 
     BubbleSort sorter;  // Создание объекта BubbleSort
     sorter.sort(vec);   // Вызов метода сортировки
@@ -42,7 +42,7 @@ int main() {
     // Вывод отсортированного вектора
     for (int i = 0; i < vec.size(); i++)
         cout << vec[i] << " ";
-    cout << "\n"
+    cout << "\n";
     return 0;
 }
 
