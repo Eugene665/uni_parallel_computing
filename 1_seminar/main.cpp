@@ -38,6 +38,8 @@ public:
 class ShakerSort : public Sort{
   public:
     void sort(int* arr, int length_arr) override{
+      // Вводим переменные позиций на левый и правый 
+      // участок неотсортированного массив
       int left_pose = 1;
       int right_pose = length_arr - 1;
       while (left_pose <= right_pose){
@@ -134,7 +136,7 @@ int main() {
     for (int i = 0; i < length_arr; i++)
         cout << bubble_arr[i] << " ";
     cout << "\n\n";
-    
+
     return 0;
 }
 

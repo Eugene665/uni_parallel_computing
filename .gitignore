@@ -1,0 +1,86 @@
+# Общие игнорируемые файлы
+*.log
+*.swp
+*.swo
+*.bak
+*~
+
+# Vim/Neovim
+**/.idea/*
+**/.nvim/*
+**/.vscode/*
+**/tags
+**/TAGS
+**/.netrwhist
+**/session.vim
+**/.DS_Store
+**/.undo/*
+**/.backup/*
+**/.swp/*
+**/.shada/*
+**/plugged/*
+**/autoload/*
+**/bundle/*
+**/dein/*
+**/nvim/site/*
+**/nvim/swap/*
+**/nvim/undo/*
+**/nvim/backup/*
+**/nvim/view/*
+
+# CLion
+.idea/
+*.iws
+*.iml
+*.ipr
+cmake-build-debug/
+cmake-build-release/
+cmake-build-*
+CMakeFiles/
+CMakeLists.txt.user
+*.out
+*.o
+*.obj
+*.so
+*.a
+*.lib
+*.dll
+*.exe
+*.class
+*.jar
+*.war
+*.ear
+*.pyc
+*.pyo
+__pycache__/
+.DS_Store
+.vscode/
+
+# CLion specific folders
+.idea/workspace.xml
+.idea/tasks.xml
+.idea/dictionaries
+.idea/jsLibraryMappings.xml
+.idea/modules.xml
+.idea/.idea/workspace.xml
+
+# CMake
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+Makefile
+
+# Build directories
+build/
+Debug/
+Release/
+
+# Miscellaneous
+*.DS_Store
+
+# Игнорировать директорию сборки CLion
+cmake-build-debug/
+
+# Игнорировать файл конфигурации CMake
+CMakeLists.txt
+
