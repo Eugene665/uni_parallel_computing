@@ -55,7 +55,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "/home/admin/uni_parallel_computing/1_seminar/GUI_1_seminar/build/Desktop-Debug"
+			"value" : "/home/eugene/uni_parallel_computing/1_seminar/GUI_1_seminar/build/Desktop-Debug"
 		},
 		{
 			"name" : "CMAKE_CACHE_MAJOR_VERSION",
@@ -479,7 +479,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "/home/admin/uni_parallel_computing/1_seminar/GUI_1_seminar/build/Desktop-Debug/CMakeFiles/pkgRedirects"
+			"value" : "/home/eugene/uni_parallel_computing/1_seminar/GUI_1_seminar/build/Desktop-Debug/CMakeFiles/pkgRedirects"
 		},
 		{
 			"name" : "CMAKE_GENERATOR",
@@ -539,7 +539,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "/home/admin/uni_parallel_computing/1_seminar/GUI_1_seminar"
+			"value" : "/home/eugene/uni_parallel_computing/1_seminar/GUI_1_seminar"
 		},
 		{
 			"name" : "CMAKE_INSTALL_BINDIR",
@@ -1015,7 +1015,7 @@
 				}
 			],
 			"type" : "PATH",
-			"value" : "/home/admin/anaconda3;/home/eugene/anaconda3"
+			"value" : "/home/eugene/anaconda3"
 		},
 		{
 			"name" : "CMAKE_PROJECT_DESCRIPTION",
@@ -1051,7 +1051,7 @@
 				}
 			],
 			"type" : "FILEPATH",
-			"value" : "/home/admin/uni_parallel_computing/1_seminar/GUI_1_seminar/build/Desktop-Debug/.qtc/package-manager/auto-setup.cmake"
+			"value" : "/home/eugene/uni_parallel_computing/1_seminar/GUI_1_seminar/build/Desktop-Debug/.qtc/package-manager/auto-setup.cmake"
 		},
 		{
 			"name" : "CMAKE_PROJECT_NAME",
@@ -1431,7 +1431,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "/home/admin/uni_parallel_computing/1_seminar/GUI_1_seminar/build/Desktop-Debug"
+			"value" : "/home/eugene/uni_parallel_computing/1_seminar/GUI_1_seminar/build/Desktop-Debug"
 		},
 		{
 			"name" : "GUI_1_seminar_IS_TOP_LEVEL",
@@ -1455,7 +1455,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "/home/admin/uni_parallel_computing/1_seminar/GUI_1_seminar"
+			"value" : "/home/eugene/uni_parallel_computing/1_seminar/GUI_1_seminar"
 		},
 		{
 			"name" : "QT_CREATOR_SKIP_PACKAGE_MANAGER_SETUP",
@@ -1479,7 +1479,7 @@
 				}
 			],
 			"type" : "PATH",
-			"value" : "/home/admin/anaconda3/lib/cmake/Qt5"
+			"value" : "/home/eugene/anaconda3/lib/cmake/Qt5"
 		},
 		{
 			"name" : "QT_QMAKE_EXECUTABLE",
@@ -1491,7 +1491,7 @@
 				}
 			],
 			"type" : "FILEPATH",
-			"value" : "/home/admin/anaconda3/bin/qmake"
+			"value" : "/home/eugene/anaconda3/bin/qmake"
 		},
 		{
 			"name" : "Qt5Core_DIR",
@@ -1503,7 +1503,7 @@
 				}
 			],
 			"type" : "PATH",
-			"value" : "/home/admin/anaconda3/lib/cmake/Qt5Core"
+			"value" : "/home/eugene/anaconda3/lib/cmake/Qt5Core"
 		},
 		{
 			"name" : "Qt5Gui_DIR",
@@ -1515,7 +1515,7 @@
 				}
 			],
 			"type" : "PATH",
-			"value" : "/home/admin/anaconda3/lib/cmake/Qt5Gui"
+			"value" : "/home/eugene/anaconda3/lib/cmake/Qt5Gui"
 		},
 		{
 			"name" : "Qt5Widgets_DIR",
@@ -1527,7 +1527,7 @@
 				}
 			],
 			"type" : "PATH",
-			"value" : "/home/admin/anaconda3/lib/cmake/Qt5Widgets"
+			"value" : "/home/eugene/anaconda3/lib/cmake/Qt5Widgets"
 		},
 		{
 			"name" : "Qt5_DIR",
@@ -1539,7 +1539,7 @@
 				}
 			],
 			"type" : "PATH",
-			"value" : "/home/admin/anaconda3/lib/cmake/Qt5"
+			"value" : "/home/eugene/anaconda3/lib/cmake/Qt5"
 		},
 		{
 			"name" : "_CMAKE_LINKER_PUSHPOP_STATE_SUPPORTED",

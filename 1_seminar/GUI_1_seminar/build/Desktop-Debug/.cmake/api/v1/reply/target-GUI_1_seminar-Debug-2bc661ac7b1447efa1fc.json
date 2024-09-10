@@ -20,8 +20,8 @@
 		"files" : 
 		[
 			"CMakeLists.txt",
-			"/home/admin/anaconda3/lib/cmake/Qt5Widgets/Qt5WidgetsConfig.cmake",
-			"/home/admin/anaconda3/lib/cmake/Qt5/Qt5Config.cmake"
+			"/home/eugene/anaconda3/lib/cmake/Qt5Widgets/Qt5WidgetsConfig.cmake",
+			"/home/eugene/anaconda3/lib/cmake/Qt5/Qt5Config.cmake"
 		],
 		"nodes" : 
 		[
@@ -112,32 +112,32 @@
 			[
 				{
 					"backtrace" : 0,
-					"path" : "/home/admin/uni_parallel_computing/1_seminar/GUI_1_seminar/build/Desktop-Debug/GUI_1_seminar_autogen/include"
+					"path" : "/home/eugene/uni_parallel_computing/1_seminar/GUI_1_seminar/build/Desktop-Debug/GUI_1_seminar_autogen/include"
 				},
 				{
 					"backtrace" : 3,
 					"isSystem" : true,
-					"path" : "/home/admin/anaconda3/include/qt"
+					"path" : "/home/eugene/anaconda3/include/qt"
 				},
 				{
 					"backtrace" : 3,
 					"isSystem" : true,
-					"path" : "/home/admin/anaconda3/include/qt/QtWidgets"
+					"path" : "/home/eugene/anaconda3/include/qt/QtWidgets"
 				},
 				{
 					"backtrace" : 3,
 					"isSystem" : true,
-					"path" : "/home/admin/anaconda3/include/qt/QtGui"
+					"path" : "/home/eugene/anaconda3/include/qt/QtGui"
 				},
 				{
 					"backtrace" : 3,
 					"isSystem" : true,
-					"path" : "/home/admin/anaconda3/include/qt/QtCore"
+					"path" : "/home/eugene/anaconda3/include/qt/QtCore"
 				},
 				{
 					"backtrace" : 3,
 					"isSystem" : true,
-					"path" : "/home/admin/anaconda3/./mkspecs/linux-g++"
+					"path" : "/home/eugene/anaconda3/./mkspecs/linux-g++"
 				}
 			],
 			"language" : "CXX",
@@ -196,22 +196,22 @@
 				"role" : "flags"
 			},
 			{
-				"fragment" : "-Wl,-rpath,/home/admin/anaconda3/lib:",
+				"fragment" : "-Wl,-rpath,/home/eugene/anaconda3/lib:",
 				"role" : "libraries"
 			},
 			{
 				"backtrace" : 3,
-				"fragment" : "/home/admin/anaconda3/lib/libQt5Widgets.so.5.15.2",
+				"fragment" : "/home/eugene/anaconda3/lib/libQt5Widgets.so.5.15.2",
 				"role" : "libraries"
 			},
 			{
 				"backtrace" : 9,
-				"fragment" : "/home/admin/anaconda3/lib/libQt5Gui.so.5.15.2",
+				"fragment" : "/home/eugene/anaconda3/lib/libQt5Gui.so.5.15.2",
 				"role" : "libraries"
 			},
 			{
 				"backtrace" : 9,
-				"fragment" : "/home/admin/anaconda3/lib/libQt5Core.so.5.15.2",
+				"fragment" : "/home/eugene/anaconda3/lib/libQt5Core.so.5.15.2",
 				"role" : "libraries"
 			}
 		],

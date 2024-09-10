@@ -44,7 +44,7 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "GUI_1_seminar::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-GUI_1_seminar-Debug-0ad1ad6cb9e3f6665334.json",
+					"jsonFile" : "target-GUI_1_seminar-Debug-2bc661ac7b1447efa1fc.json",
 					"name" : "GUI_1_seminar",
 					"projectIndex" : 0
 				},
@@ -68,8 +68,8 @@
 	"kind" : "codemodel",
 	"paths" : 
 	{
-		"build" : "/home/admin/uni_parallel_computing/1_seminar/GUI_1_seminar/build/Desktop-Debug",
-		"source" : "/home/admin/uni_parallel_computing/1_seminar/GUI_1_seminar"
+		"build" : "/home/eugene/uni_parallel_computing/1_seminar/GUI_1_seminar/build/Desktop-Debug",
+		"source" : "/home/eugene/uni_parallel_computing/1_seminar/GUI_1_seminar"
 	},
 	"version" : 
 	{
