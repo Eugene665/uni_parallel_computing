@@ -197,7 +197,7 @@ public:
         sorting_results_window->setWindowTitle(QCoreApplication::translate("sorting_results_window", "Dialog", nullptr));
         label_3->setText(QCoreApplication::translate("sorting_results_window", "SelectionSort", nullptr));
         label_2->setText(QCoreApplication::translate("sorting_results_window", "ShakerSort", nullptr));
-        label_4->setText(QCoreApplication::translate("sorting_results_window", "\320\222\321\200\320\265\320\274\321\217", nullptr));
+        label_4->setText(QCoreApplication::translate("sorting_results_window", "\320\222\321\200\320\265\320\274\321\217(\320\262 \321\201\320\265\320\272\321\203\320\275\320\264\320\260\321\205)", nullptr));
         label_5->setText(QCoreApplication::translate("sorting_results_window", "\320\232\320\276\320\273-\320\262\320\276 \321\201\321\200\320\260\320\262\320\275\320\265\320\275\320\270\320\271", nullptr));
         label_6->setText(QCoreApplication::translate("sorting_results_window", "\320\232\320\276\320\273-\320\262\320\276 \320\277\320\265\321\200\320\265\321\201\321\202\320\260\320\275\320\276\320\262\320\276\320\272", nullptr));
         label->setText(QCoreApplication::translate("sorting_results_window", "BubbleSort", nullptr));

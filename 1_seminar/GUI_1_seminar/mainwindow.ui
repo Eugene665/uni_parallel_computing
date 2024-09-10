@@ -147,7 +147,7 @@
      </font>
     </property>
     <property name="text">
-     <string>Используемые сортировки</string>
+     <string>Используемые сортировки:</string>
     </property>
    </widget>
    <widget class="QLabel" name="label_3">

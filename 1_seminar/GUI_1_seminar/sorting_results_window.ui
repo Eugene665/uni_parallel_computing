@@ -154,7 +154,7 @@
        </font>
       </property>
       <property name="text">
-       <string>Время</string>
+       <string>Время(в секундах)</string>
       </property>
      </widget>
     </item>
