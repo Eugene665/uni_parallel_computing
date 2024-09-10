@@ -9,6 +9,22 @@ void Swap(int& a, int& b) {
   b = temp;
 }
 
+void out_arr_before(int* arr, int length_arr, string name_sort){
+    // Вывод массива до сортировки
+    cout << "Массив до сортировки " << name_sort << "\n";
+    for (int i = 0; i < length_arr; i++)
+        cout << arr[i] << " ";
+    cout << "\n";
+}
+
+void out_arr_after(int* arr, int length_arr, string name_sort){
+    // Вывод массива после сортировки
+    cout << "Массив после сортировки " << name_sort << "\n";
+    for (int i = 0; i < length_arr; i++)
+        cout << arr[i] << " ";
+    cout << "\n";
+}
+
 class Sort {
 public:
   //Виртуальный метод, который в последствии будет переопределён
@@ -95,7 +111,7 @@ int main() {
     */
 
     // Исходный массив
-    int length_arr = 10000;
+    int length_arr = 50;
     //int arr[length_arr]{6, 10, 1, 3, 2};
     int arr[length_arr];
 
@@ -104,14 +120,19 @@ int main() {
       arr[i] = num;
     }
 
+    string flag_out_arr;
+    cout << "Хотите выводить массивы до и после сортировки(да/нет): ";
+    cin >> flag_out_arr;
+
+    if (flag_out_arr == "да"){
     // Вывод исходного массива
-    /*
-    cout << "Исходный массив\n";
-    for (int i = 0; i < length_arr; i++) {
-      cout << arr[i] << " ";
+      cout << "Исходный массив\n";
+      for (int i = 0; i < length_arr; i++) {
+        cout << arr[i] << " ";
+      }
     }
-    cout << "\n\n";
-    */
+    cout << "\n\n\n";
+
     //BubbleSort---------------------------------------
     // Копирования массива для сортировки пузырьком
     int bubble_arr[length_arr];
@@ -119,13 +140,11 @@ int main() {
       bubble_arr[i] = arr[i];
     }
 
-    // Вывод массива до сортировки
-    /*
-    cout << "Массив до сортировки пузырьком\n";
-    for (int i = 0; i < length_arr; i++)
-        cout << bubble_arr[i] << " ";
-    cout << "\n";
-    */
+    if (flag_out_arr == "да"){
+      // Вывод массива до сортировки
+      out_arr_before(bubble_arr, length_arr, "пузырьком");
+    }
+
     // Создание объекта BubbleSort 
     BubbleSort sorter_bubble;
     // Начало измерения времини
@@ -136,13 +155,13 @@ int main() {
     clock_t end_bubble_sort = clock();
     double seconds_bubble_sort = (double)(end_bubble_sort - start_bubble_sort) / CLOCKS_PER_SEC;
     cout << "Затрачено секунд на сортироку пузырьком\n" << seconds_bubble_sort << "\n";
-    // Вывод отсортированного массива
-    /*
-    cout << "После сортировки пузырьком\n";
-    for (int i = 0; i < length_arr; i++)
-        cout << bubble_arr[i] << " ";
-    cout << "\n\n";
-    */
+    
+    if (flag_out_arr == "да"){
+      // Вывод отсортированного массива
+      out_arr_after(bubble_arr, length_arr, "пузырьком");
+    }
+    cout << "\n\n\n";
+
     //ShakerSort-------------------------------------------
     // Копирования массива для сортировки шейкером
     int shaker_arr[length_arr];
@@ -150,13 +169,11 @@ int main() {
       shaker_arr[i] = arr[i];
     }
 
-    // Вывод массива до сортировки
-    /*
-    cout << "До сортировки шейкером\n";
-    for (int i = 0; i < length_arr; i++)
-        cout << shaker_arr[i] << " ";
-    cout << "\n";
-    */
+    if (flag_out_arr == "да"){
+      // Вывод массива до сортировки
+      out_arr_before(shaker_arr, length_arr, "шейкером");
+    }
+
     // Создание объекта ShakerSort
     ShakerSort sorter_shaker;
     // Начало измерения времини
@@ -167,14 +184,13 @@ int main() {
     clock_t end_shaker_sort = clock();
     double seconds_shaker_sort = (double)(end_shaker_sort - start_shaker_sort) / CLOCKS_PER_SEC;
     cout << "Затрачено секунд на сортироку шейкером\n" << seconds_shaker_sort << "\n";
-   
-    // Вывод отсортированного массив
-    /*
-    cout << "После сортировки шейкером\n";
-    for (int i = 0; i < length_arr; i++)
-        cout << shaker_arr[i] << " ";
-    cout << "\n\n";
-    */
+
+    if (flag_out_arr == "да"){
+      // Вывод отсортированного массива
+      out_arr_after(shaker_arr, length_arr, "шейкером");
+    }
+    cout << "\n\n\n";
+
     //SelectionSort----------------------------------------
     // Копирования массива для сортировки выбором
     int  selection_arr[length_arr];
@@ -182,13 +198,10 @@ int main() {
       selection_arr[i] = arr[i];
     }
 
-    // Вывод массива до сортировки
-    /*
-    cout << "До сортировки выбором\n";
-    for (int i = 0; i < length_arr; i++)
-        cout << selection_arr[i] << " ";
-    cout << "\n";
-    */
+    if (flag_out_arr == "да"){
+      // Вывод массива до сортировки
+      out_arr_before(selection_arr, length_arr, "выбором");
+    }
 
     // Создание объекта SelectionSort
     SelectionSort sorter_selection;
@@ -200,15 +213,14 @@ int main() {
     clock_t end_selection_sort = clock();
     double seconds_selection_sort = (double)(end_selection_sort - start_selection_sort) / CLOCKS_PER_SEC;
     cout << "Затрачено секунд на сортироку выбором\n" << seconds_selection_sort << "\n";
-   
-    // Вывод отсортированного массива
-    /*
-    cout << "После сортировки выбором\n";
-    for (int i = 0; i < length_arr; i++)
-        cout << selection_arr[i] << " ";
-    cout << "\n\n"; 
-    */
 
+    if (flag_out_arr == "да"){
+      // Вывод отсортированного массива
+      if (flag_out_arr == "да"){
+        out_arr_after(selection_arr, length_arr, "выбором");
+      }
+    }
+    cout << "\n\n";
     return 0;
 }
 
