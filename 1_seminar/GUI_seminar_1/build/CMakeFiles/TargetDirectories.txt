@@ -1,0 +1,9 @@
+/home/eugene/uni_parallel_computing/1_seminar/GUI_seminar_1/build/CMakeFiles/GUI_seminar_1.dir
+/home/eugene/uni_parallel_computing/1_seminar/GUI_seminar_1/build/CMakeFiles/edit_cache.dir
+/home/eugene/uni_parallel_computing/1_seminar/GUI_seminar_1/build/CMakeFiles/rebuild_cache.dir
+/home/eugene/uni_parallel_computing/1_seminar/GUI_seminar_1/build/CMakeFiles/list_install_components.dir
+/home/eugene/uni_parallel_computing/1_seminar/GUI_seminar_1/build/CMakeFiles/install.dir
+/home/eugene/uni_parallel_computing/1_seminar/GUI_seminar_1/build/CMakeFiles/install/local.dir
+/home/eugene/uni_parallel_computing/1_seminar/GUI_seminar_1/build/CMakeFiles/install/strip.dir
+/home/eugene/uni_parallel_computing/1_seminar/GUI_seminar_1/build/CMakeFiles/GUI_seminar_1_autogen_timestamp_deps.dir
+/home/eugene/uni_parallel_computing/1_seminar/GUI_seminar_1/build/CMakeFiles/GUI_seminar_1_autogen.dir

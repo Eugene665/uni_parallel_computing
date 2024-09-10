@@ -1,0 +1,79 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-.-Debug-b0bba110d60b275d8ad5.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.5"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "GUI_seminar_1",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "GUI_seminar_1::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-GUI_seminar_1-Debug-11c70dd5431d17f231de.json",
+					"name" : "GUI_seminar_1",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "GUI_seminar_1_autogen::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-GUI_seminar_1_autogen-Debug-eaa6b0f0c9149fcf9075.json",
+					"name" : "GUI_seminar_1_autogen",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "GUI_seminar_1_autogen_timestamp_deps::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-GUI_seminar_1_autogen_timestamp_deps-Debug-c3a47918e961639cfa4a.json",
+					"name" : "GUI_seminar_1_autogen_timestamp_deps",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/home/eugene/uni_parallel_computing/1_seminar/GUI_seminar_1/build/Desktop-Debug",
+		"source" : "/home/eugene/uni_parallel_computing/1_seminar/GUI_seminar_1"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 6
+	}
+}
