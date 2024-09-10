@@ -45,7 +45,7 @@ public:
     QLabel *label_5;
     QLabel *label_6;
     QLabel *label;
-    QWidget *widget;
+    QWidget *layoutWidget1;
     QHBoxLayout *horizontalLayout_2;
     QLabel *label_7;
     QLineEdit *lengthLabel;
@@ -54,7 +54,7 @@ public:
     {
         if (sorting_results_window->objectName().isEmpty())
             sorting_results_window->setObjectName(QString::fromUtf8("sorting_results_window"));
-        sorting_results_window->resize(786, 323);
+        sorting_results_window->resize(799, 323);
         layoutWidget = new QWidget(sorting_results_window);
         layoutWidget->setObjectName(QString::fromUtf8("layoutWidget"));
         layoutWidget->setGeometry(QRect(290, 70, 471, 211));
@@ -170,18 +170,18 @@ public:
         label->setObjectName(QString::fromUtf8("label"));
         label->setGeometry(QRect(310, 50, 121, 21));
         label->setFont(font);
-        widget = new QWidget(sorting_results_window);
-        widget->setObjectName(QString::fromUtf8("widget"));
-        widget->setGeometry(QRect(20, 20, 237, 28));
-        horizontalLayout_2 = new QHBoxLayout(widget);
+        layoutWidget1 = new QWidget(sorting_results_window);
+        layoutWidget1->setObjectName(QString::fromUtf8("layoutWidget1"));
+        layoutWidget1->setGeometry(QRect(20, 20, 237, 28));
+        horizontalLayout_2 = new QHBoxLayout(layoutWidget1);
         horizontalLayout_2->setObjectName(QString::fromUtf8("horizontalLayout_2"));
         horizontalLayout_2->setContentsMargins(0, 0, 0, 0);
-        label_7 = new QLabel(widget);
+        label_7 = new QLabel(layoutWidget1);
         label_7->setObjectName(QString::fromUtf8("label_7"));
 
         horizontalLayout_2->addWidget(label_7);
 
-        lengthLabel = new QLineEdit(widget);
+        lengthLabel = new QLineEdit(layoutWidget1);
         lengthLabel->setObjectName(QString::fromUtf8("lengthLabel"));
 
         horizontalLayout_2->addWidget(lengthLabel);
