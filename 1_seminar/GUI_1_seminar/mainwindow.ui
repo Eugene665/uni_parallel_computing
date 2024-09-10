@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>802</width>
+    <width>788</width>
     <height>307</height>
    </rect>
   </property>
@@ -92,8 +92,8 @@
    <widget class="QPushButton" name="start_all_sort_button">
     <property name="geometry">
      <rect>
-      <x>510</x>
-      <y>140</y>
+      <x>490</x>
+      <y>150</y>
       <width>261</width>
       <height>81</height>
      </rect>
@@ -187,7 +187,8 @@
      </font>
     </property>
     <property name="text">
-     <string>SelectionSort</string>
+     <string>&lt;p&gt;SelectionSort&lt;/p&gt;
+</string>
     </property>
    </widget>
   </widget>
@@ -196,7 +197,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>802</width>
+     <width>788</width>
      <height>23</height>
     </rect>
    </property>

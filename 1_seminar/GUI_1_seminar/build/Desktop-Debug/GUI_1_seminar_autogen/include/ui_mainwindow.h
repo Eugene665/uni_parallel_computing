@@ -49,7 +49,7 @@ public:
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName(QString::fromUtf8("MainWindow"));
-        MainWindow->resize(802, 307);
+        MainWindow->resize(788, 307);
         centralwidget = new QWidget(MainWindow);
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
         layoutWidget = new QWidget(centralwidget);
@@ -98,7 +98,7 @@ public:
 
         start_all_sort_button = new QPushButton(centralwidget);
         start_all_sort_button->setObjectName(QString::fromUtf8("start_all_sort_button"));
-        start_all_sort_button->setGeometry(QRect(510, 140, 261, 81));
+        start_all_sort_button->setGeometry(QRect(490, 150, 261, 81));
         QFont font1;
         font1.setFamily(QString::fromUtf8("Cantarell"));
         font1.setPointSize(18);
@@ -124,7 +124,7 @@ public:
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName(QString::fromUtf8("menubar"));
-        menubar->setGeometry(QRect(0, 0, 802, 23));
+        menubar->setGeometry(QRect(0, 0, 788, 23));
         MainWindow->setMenuBar(menubar);
         statusbar = new QStatusBar(MainWindow);
         statusbar->setObjectName(QString::fromUtf8("statusbar"));
@@ -146,7 +146,8 @@ public:
         label_2->setText(QCoreApplication::translate("MainWindow", "BubbleSort", nullptr));
         label->setText(QCoreApplication::translate("MainWindow", "\320\230\321\201\320\277\320\276\320\273\321\214\320\267\321\203\320\265\320\274\321\213\320\265 \321\201\320\276\321\200\321\202\320\270\321\200\320\276\320\262\320\272\320\270", nullptr));
         label_3->setText(QCoreApplication::translate("MainWindow", "ShakerSort", nullptr));
-        label_4->setText(QCoreApplication::translate("MainWindow", "SelectionSort", nullptr));
+        label_4->setText(QCoreApplication::translate("MainWindow", "<p>SelectionSort</p>\n"
+"", nullptr));
     } // retranslateUi
 
 };

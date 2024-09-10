@@ -13,7 +13,6 @@ MainWindow::MainWindow(QWidget *parent)
 }
 
 
-
 // Функция для обмена значений без затирки
 void Swap(int& a, int& b) {
     int temp = a;
@@ -21,65 +20,80 @@ void Swap(int& a, int& b) {
     b = temp;
 }
 
-void out_arr_before(int* arr, int length_arr, string name_sort){
+void out_arr_before(int* arr, int length_arr, string name_sort) {
     // Вывод массива до сортировки
     qDebug() << "Массив до сортировки " << QString::fromStdString(name_sort);
-    for (int i = 0; i < length_arr; i++)
-        qDebug() << arr[i] << " ";
+    QString output;
+    for (int i = 0; i < length_arr; i++) {
+        output += QString::number(arr[i]) + " ";
+    }
+    qDebug().noquote() << output;
     qDebug() << "\n";
 }
 
-void out_arr_after(int* arr, int length_arr, string name_sort){
+void out_arr_after(int* arr, int length_arr, string name_sort) {
     // Вывод массива после сортировки
     qDebug() << "Массив после сортировки " << QString::fromStdString(name_sort);
-    for (int i = 0; i < length_arr; i++)
-        qDebug() << arr[i] << " ";
+    QString output;
+    for (int i = 0; i < length_arr; i++) {
+        output += QString::number(arr[i]) + " ";
+    }
+    qDebug().noquote() << output;
     qDebug() << "\n";
 }
 
 class Sort {
 public:
-        //Виртуальный метод, который в последствии будет переопределён
     virtual void sort(int* arr, int length_arr) = 0;
+
+    int getComparisons() const { return comparisons; }
+    int getSwaps() const { return swaps; }
+
+protected:
+    int comparisons = 0;
+    int swaps = 0;
 };
 
 class BubbleSort : public Sort {
 public:
-    // Переопределение функции
     void sort(int* arr, int length_arr) override {
-        // Проходим по всему списку
-        for (int i = 0; i < length_arr - 1; i++){
-            // Проходим по списку до отсортированной части,
-            // до чисел, которые уже "всплыли"
+        comparisons = 0;  // Сброс счётчика сравнений
+        swaps = 0;        // Сброс счётчика перестановок
+
+        for (int i = 0; i < length_arr - 1; i++) {
             for (int j = 0; j < length_arr - i - 1; j++) {
-                // Если впереди стоящее число меньше,
-                // числа меняюся местами
+                comparisons++;  // Увеличение счётчика сравнений
                 if (arr[j] > arr[j + 1]) {
                     Swap(arr[j], arr[j + 1]);
+                    swaps++;  // Увеличение счётчика перестановок
                 }
             }
         }
     }
 };
 
-
-class ShakerSort : public Sort{
+class ShakerSort : public Sort {
 public:
     void sort(int* arr, int length_arr) override {
-        // Вводим переменные позиций на левый и правый
-        // участок неотсортированного массив
+        comparisons = 0;  // Сброс счётчика сравнений
+        swaps = 0;        // Сброс счётчика перестановок
+
         int left_pose = 0;
         int right_pose = length_arr - 1;
         while (left_pose <= right_pose) {
             for (int i = right_pose; i > left_pose; i--) {
+                comparisons++;  // Увеличение счётчика сравнений
                 if (arr[i - 1] > arr[i]) {
                     Swap(arr[i - 1], arr[i]);
+                    swaps++;  // Увеличение счётчика перестановок
                 }
             }
             left_pose++;
             for (int i = left_pose; i < right_pose; i++) {
-                if (arr[i] > arr[i + 1]){
+                comparisons++;  // Увеличение счётчика сравнений
+                if (arr[i] > arr[i + 1]) {
                     Swap(arr[i], arr[i + 1]);
+                    swaps++;  // Увеличение счётчика перестановок
                 }
             }
             right_pose--;
@@ -87,23 +101,28 @@ public:
     }
 };
 
-class SelectionSort : public Sort{
+
+class SelectionSort : public Sort {
 public:
     void sort(int* arr, int length_arr) override {
+        comparisons = 0;  // Сброс счётчика сравнений
+        swaps = 0;        // Сброс счётчика перестановок
+
         for (int i = 0; i < length_arr - 1; i++) {
             int smallest_pose = i;
             for (int j = i + 1; j < length_arr; j++) {
+                comparisons++;  // Увеличение счётчика сравнений
                 if (arr[j] < arr[smallest_pose]) {
                     smallest_pose = j;
                 }
             }
             if (smallest_pose != i) {
                 Swap(arr[i], arr[smallest_pose]);
+                swaps++;  // Увеличение счётчика перестановок
             }
         }
     }
 };
-
 
 
 MainWindow::~MainWindow()
@@ -124,7 +143,7 @@ void MainWindow::on_start_all_sort_button_clicked()
     }
 
     int length_arr = ui->input_len_arr->text().toInt();
-    //qDebug() << "длина массива:" << leng_arr;
+    //qDebug() << "длина массива:" << length_arr;
 
     setlocale(LC_ALL,"Rus");
 
@@ -148,25 +167,31 @@ void MainWindow::on_start_all_sort_button_clicked()
     int arr[length_arr];
 
     for (int i = 0; i < length_arr; i++){
-        int num = 1 + rand() % 20;
+        int num = 1 + rand() % 10;
         arr[i] = num;
     }
 
     string flag_out_arr;
     //cout << "Хотите выводить массивы до и после сортировки(да/нет): ";
     //cin >> flag_out_arr;
-    if (parallel_sort){
+    if (ui->checkBox->isChecked()){
         flag_out_arr = "да";
     }
 
-    if (flag_out_arr == "да"){
+    if (flag_out_arr == "да") {
         // Вывод исходного массива
-        qDebug() << "Исходный массив\n";
+        qDebug() << "Исходный массив";
+        QString output;
         for (int i = 0; i < length_arr; i++) {
-            qDebug() << arr[i] << " ";
+            output += QString::number(arr[i]) + " ";
         }
+        qDebug().noquote() << output;
     }
     qDebug() << "\n\n\n";
+
+    //int bubbleData[3];
+    //int shakerData[3];
+    //int selectionData[3];
 
     //BubbleSort---------------------------------------
     // Копирования массива для сортировки пузырьком
@@ -190,6 +215,14 @@ void MainWindow::on_start_all_sort_button_clicked()
     clock_t end_bubble_sort = clock();
     double seconds_bubble_sort = (double)(end_bubble_sort - start_bubble_sort) / CLOCKS_PER_SEC;
     qDebug() << "Затрачено секунд на сортироку пузырьком\n" << seconds_bubble_sort << "\n";
+
+    int comparisons_bubble = sorter_bubble.getComparisons();
+    int swaps_bubble = sorter_bubble.getSwaps();
+    qDebug() << "Сравнений (пузырьковая сортировка):" << comparisons_bubble;
+    qDebug() << "Перестановок (пузырьковая сортировка):" << swaps_bubble << "\n";
+    //bubbleData[0] = seconds_bubble_sort;
+    //bubbleData[1] = comparisons_bubble;
+    //bubbleData[2] = swaps_bubble;
 
     if (flag_out_arr == "да"){
         // Вывод отсортированного массива
@@ -220,6 +253,14 @@ void MainWindow::on_start_all_sort_button_clicked()
     double seconds_shaker_sort = (double)(end_shaker_sort - start_shaker_sort) / CLOCKS_PER_SEC;
     qDebug() << "Затрачено секунд на сортироку шейкером\n" << seconds_shaker_sort << "\n";
 
+    int comparisons_shaker = sorter_shaker.getComparisons();
+    int swaps_shaker = sorter_shaker.getSwaps();
+    qDebug() << "Сравнений (сортировка шейкером):" << comparisons_shaker;
+    qDebug() << "Перестановок (сортировка шейкером):" << swaps_shaker << "\n";
+    //shakerData[0] = seconds_shaker_sort;
+    //shakerData[1] = comparisons_shaker;
+    //shakerData[2] = swaps_shaker;
+
     if (flag_out_arr == "да"){
         // Вывод отсортированного массива
         out_arr_after(shaker_arr, length_arr, "шейкером");
@@ -249,6 +290,14 @@ void MainWindow::on_start_all_sort_button_clicked()
     double seconds_selection_sort = (double)(end_selection_sort - start_selection_sort) / CLOCKS_PER_SEC;
     qDebug() << "Затрачено секунд на сортироку выбором\n" << seconds_selection_sort << "\n";
 
+    int comparisons_selection = sorter_selection.getComparisons();
+    int swaps_selection = sorter_selection.getSwaps();
+    qDebug() << "Сравнений (сортировка выбором):" << comparisons_selection;
+    qDebug() << "Перестановок (сортировка выбором):" << swaps_selection << "\n";
+    //selectionData[0] = seconds_selection_sort;
+    //selectionData[1] = comparisons_selection;
+    //selectionData[2] = swaps_selection;
+
     if (flag_out_arr == "да"){
         // Вывод отсортированного массива
         if (flag_out_arr == "да"){
@@ -257,9 +306,13 @@ void MainWindow::on_start_all_sort_button_clicked()
     }
     qDebug() << "\n\n";
 
-        //window->setLength(leng_arr);
-        window->show();
+    double sortData[9] = {seconds_bubble_sort, comparisons_bubble, swaps_bubble,
+                          seconds_shaker_sort, comparisons_shaker, swaps_shaker,
+                          seconds_selection_sort, comparisons_selection, swaps_selection};
 
+    window->setSortData(sortData);
+    window->setLength(length_arr);
+    window->show();
 
 }
 

@@ -15,6 +15,9 @@ public:
     explicit sorting_results_window(QWidget *parent = nullptr);
     ~sorting_results_window();
 
+    void setLength(int length);
+    void setSortData(double* sortdata);
+
 private slots:
     void on_buttonBox_accepted();
 

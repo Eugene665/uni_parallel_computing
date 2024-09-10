@@ -65,16 +65,19 @@ public:
         verticalLayout->setObjectName(QString::fromUtf8("verticalLayout"));
         time_bubble = new QLineEdit(layoutWidget);
         time_bubble->setObjectName(QString::fromUtf8("time_bubble"));
+        time_bubble->setReadOnly(true);
 
         verticalLayout->addWidget(time_bubble);
 
         comparisons_bubble = new QLineEdit(layoutWidget);
         comparisons_bubble->setObjectName(QString::fromUtf8("comparisons_bubble"));
+        comparisons_bubble->setReadOnly(true);
 
         verticalLayout->addWidget(comparisons_bubble);
 
         swap_bubble = new QLineEdit(layoutWidget);
         swap_bubble->setObjectName(QString::fromUtf8("swap_bubble"));
+        swap_bubble->setReadOnly(true);
 
         verticalLayout->addWidget(swap_bubble);
 
@@ -85,16 +88,19 @@ public:
         verticalLayout_2->setObjectName(QString::fromUtf8("verticalLayout_2"));
         time_shaker = new QLineEdit(layoutWidget);
         time_shaker->setObjectName(QString::fromUtf8("time_shaker"));
+        time_shaker->setReadOnly(true);
 
         verticalLayout_2->addWidget(time_shaker);
 
         comparisons_shaker = new QLineEdit(layoutWidget);
         comparisons_shaker->setObjectName(QString::fromUtf8("comparisons_shaker"));
+        comparisons_shaker->setReadOnly(true);
 
         verticalLayout_2->addWidget(comparisons_shaker);
 
         swap_shaker = new QLineEdit(layoutWidget);
         swap_shaker->setObjectName(QString::fromUtf8("swap_shaker"));
+        swap_shaker->setReadOnly(true);
 
         verticalLayout_2->addWidget(swap_shaker);
 
@@ -105,16 +111,19 @@ public:
         verticalLayout_3->setObjectName(QString::fromUtf8("verticalLayout_3"));
         time_selection = new QLineEdit(layoutWidget);
         time_selection->setObjectName(QString::fromUtf8("time_selection"));
+        time_selection->setReadOnly(true);
 
         verticalLayout_3->addWidget(time_selection);
 
         comparisons_selection = new QLineEdit(layoutWidget);
         comparisons_selection->setObjectName(QString::fromUtf8("comparisons_selection"));
+        comparisons_selection->setReadOnly(true);
 
         verticalLayout_3->addWidget(comparisons_selection);
 
         swap_selection = new QLineEdit(layoutWidget);
         swap_selection->setObjectName(QString::fromUtf8("swap_selection"));
+        swap_selection->setReadOnly(true);
 
         verticalLayout_3->addWidget(swap_selection);
 
