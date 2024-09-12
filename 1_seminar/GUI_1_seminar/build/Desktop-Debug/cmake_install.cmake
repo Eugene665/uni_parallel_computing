@@ -1,4 +1,4 @@
-# Install script for directory: /home/eugene/uni_parallel_computing/1_seminar/GUI_1_seminar
+# Install script for directory: /home/admin/uni_parallel_computing/1_seminar/GUI_1_seminar
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -49,12 +49,12 @@ if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT
          FILE "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/bin/GUI_1_seminar"
          RPATH "")
   endif()
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/bin" TYPE EXECUTABLE FILES "/home/eugene/uni_parallel_computing/1_seminar/GUI_1_seminar/build/Desktop-Debug/GUI_1_seminar")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/bin" TYPE EXECUTABLE FILES "/home/admin/uni_parallel_computing/1_seminar/GUI_1_seminar/build/Desktop-Debug/GUI_1_seminar")
   if(EXISTS "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/bin/GUI_1_seminar" AND
      NOT IS_SYMLINK "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/bin/GUI_1_seminar")
     file(RPATH_CHANGE
          FILE "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/bin/GUI_1_seminar"
-         OLD_RPATH "/home/eugene/anaconda3/lib:"
+         OLD_RPATH "/home/admin/anaconda3/lib:"
          NEW_RPATH "")
     if(CMAKE_INSTALL_DO_STRIP)
       execute_process(COMMAND "/usr/bin/strip" "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/bin/GUI_1_seminar")
@@ -70,5 +70,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/eugene/uni_parallel_computing/1_seminar/GUI_1_seminar/build/Desktop-Debug/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/admin/uni_parallel_computing/1_seminar/GUI_1_seminar/build/Desktop-Debug/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

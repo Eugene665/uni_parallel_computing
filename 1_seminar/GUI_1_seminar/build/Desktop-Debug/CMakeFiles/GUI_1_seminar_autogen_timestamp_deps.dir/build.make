@@ -53,10 +53,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/eugene/uni_parallel_computing/1_seminar/GUI_1_seminar
+CMAKE_SOURCE_DIR = /home/admin/uni_parallel_computing/1_seminar/GUI_1_seminar
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/eugene/uni_parallel_computing/1_seminar/GUI_1_seminar/build/Desktop-Debug
+CMAKE_BINARY_DIR = /home/admin/uni_parallel_computing/1_seminar/GUI_1_seminar/build/Desktop-Debug
 
 # Utility rule file for GUI_1_seminar_autogen_timestamp_deps.
 
@@ -66,9 +66,9 @@ include CMakeFiles/GUI_1_seminar_autogen_timestamp_deps.dir/compiler_depend.make
 # Include the progress variables for this target.
 include CMakeFiles/GUI_1_seminar_autogen_timestamp_deps.dir/progress.make
 
-CMakeFiles/GUI_1_seminar_autogen_timestamp_deps: /home/eugene/anaconda3/lib/libQt5Widgets.so.5.15.2
-CMakeFiles/GUI_1_seminar_autogen_timestamp_deps: /home/eugene/anaconda3/bin/moc
-CMakeFiles/GUI_1_seminar_autogen_timestamp_deps: /home/eugene/anaconda3/bin/uic
+CMakeFiles/GUI_1_seminar_autogen_timestamp_deps: /home/admin/anaconda3/lib/libQt5Widgets.so.5.15.2
+CMakeFiles/GUI_1_seminar_autogen_timestamp_deps: /home/admin/anaconda3/bin/moc
+CMakeFiles/GUI_1_seminar_autogen_timestamp_deps: /home/admin/anaconda3/bin/uic
 
 GUI_1_seminar_autogen_timestamp_deps: CMakeFiles/GUI_1_seminar_autogen_timestamp_deps
 GUI_1_seminar_autogen_timestamp_deps: CMakeFiles/GUI_1_seminar_autogen_timestamp_deps.dir/build.make
@@ -83,6 +83,6 @@ CMakeFiles/GUI_1_seminar_autogen_timestamp_deps.dir/clean:
 .PHONY : CMakeFiles/GUI_1_seminar_autogen_timestamp_deps.dir/clean
 
 CMakeFiles/GUI_1_seminar_autogen_timestamp_deps.dir/depend:
-	cd /home/eugene/uni_parallel_computing/1_seminar/GUI_1_seminar/build/Desktop-Debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/eugene/uni_parallel_computing/1_seminar/GUI_1_seminar /home/eugene/uni_parallel_computing/1_seminar/GUI_1_seminar /home/eugene/uni_parallel_computing/1_seminar/GUI_1_seminar/build/Desktop-Debug /home/eugene/uni_parallel_computing/1_seminar/GUI_1_seminar/build/Desktop-Debug /home/eugene/uni_parallel_computing/1_seminar/GUI_1_seminar/build/Desktop-Debug/CMakeFiles/GUI_1_seminar_autogen_timestamp_deps.dir/DependInfo.cmake "--color=$(COLOR)"
+	cd /home/admin/uni_parallel_computing/1_seminar/GUI_1_seminar/build/Desktop-Debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/admin/uni_parallel_computing/1_seminar/GUI_1_seminar /home/admin/uni_parallel_computing/1_seminar/GUI_1_seminar /home/admin/uni_parallel_computing/1_seminar/GUI_1_seminar/build/Desktop-Debug /home/admin/uni_parallel_computing/1_seminar/GUI_1_seminar/build/Desktop-Debug /home/admin/uni_parallel_computing/1_seminar/GUI_1_seminar/build/Desktop-Debug/CMakeFiles/GUI_1_seminar_autogen_timestamp_deps.dir/DependInfo.cmake "--color=$(COLOR)"
 .PHONY : CMakeFiles/GUI_1_seminar_autogen_timestamp_deps.dir/depend
 

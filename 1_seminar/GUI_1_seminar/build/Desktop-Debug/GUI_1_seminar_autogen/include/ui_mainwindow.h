@@ -111,7 +111,7 @@ public:
         label_2->setFont(font);
         label = new QLabel(centralwidget);
         label->setObjectName(QString::fromUtf8("label"));
-        label->setGeometry(QRect(20, 20, 241, 51));
+        label->setGeometry(QRect(20, 20, 271, 51));
         label->setFont(font);
         label_3 = new QLabel(centralwidget);
         label_3->setObjectName(QString::fromUtf8("label_3"));
@@ -144,7 +144,7 @@ public:
         checkBox->setText(QCoreApplication::translate("MainWindow", "\320\222\321\213\320\262\320\265\321\201\321\202\320\270 \320\262 \321\202\320\265\321\200\320\274\320\270\320\275\320\260\320\273 \321\200\320\265\320\267\321\203\320\273\321\214\321\202\320\260\321\202\321\213 \321\201\320\276\321\200\321\202\320\270\321\200\320\276\320\262\320\276\320\272", nullptr));
         start_all_sort_button->setText(QCoreApplication::translate("MainWindow", "\320\235\320\260\321\207\320\260\321\202\321\214 \321\201\320\276\321\200\321\202\320\270\321\200\320\276\320\262\320\272\321\203", nullptr));
         label_2->setText(QCoreApplication::translate("MainWindow", "BubbleSort", nullptr));
-        label->setText(QCoreApplication::translate("MainWindow", "\320\230\321\201\320\277\320\276\320\273\321\214\320\267\321\203\320\265\320\274\321\213\320\265 \321\201\320\276\321\200\321\202\320\270\321\200\320\276\320\262\320\272\320\270", nullptr));
+        label->setText(QCoreApplication::translate("MainWindow", "\320\230\321\201\320\277\320\276\320\273\321\214\320\267\321\203\320\265\320\274\321\213\320\265 \321\201\320\276\321\200\321\202\320\270\321\200\320\276\320\262\320\272\320\270:", nullptr));
         label_3->setText(QCoreApplication::translate("MainWindow", "ShakerSort", nullptr));
         label_4->setText(QCoreApplication::translate("MainWindow", "<p>SelectionSort</p>\n"
 "", nullptr));

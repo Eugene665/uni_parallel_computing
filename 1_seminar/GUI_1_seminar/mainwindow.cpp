@@ -12,7 +12,6 @@ MainWindow::MainWindow(QWidget *parent)
     ui->setupUi(this);
 }
 
-
 // Функция для обмена значений без затирки
 void Swap(int& a, int& b) {
     int temp = a;
@@ -44,6 +43,7 @@ void out_arr_after(int* arr, int length_arr, string name_sort) {
 
 class Sort {
 public:
+    //Виртуальный метод, который в последствии будет переопределён
     virtual void sort(int* arr, int length_arr) = 0;
 
     int getComparisons() const { return comparisons; }
@@ -56,13 +56,20 @@ protected:
 
 class BubbleSort : public Sort {
 public:
+    // Переопределение функции
     void sort(int* arr, int length_arr) override {
-        comparisons = 0;  // Сброс счётчика сравнений
-        swaps = 0;        // Сброс счётчика перестановок
-
+        // Сброс счётчика сравнений и перестановок
+        comparisons = 0;
+        swaps = 0;
+        // Проходим по всему списку
         for (int i = 0; i < length_arr - 1; i++) {
+            // Проходим по списку до отсортированной части,
+            // до чисел, которые уже "всплыли"
             for (int j = 0; j < length_arr - i - 1; j++) {
-                comparisons++;  // Увеличение счётчика сравнений
+                // Увеличение счётчика сравнений
+                comparisons++;
+                // Если впереди стоящее число меньше,
+                // числа меняюся местами
                 if (arr[j] > arr[j + 1]) {
                     Swap(arr[j], arr[j + 1]);
                     swaps++;  // Увеличение счётчика перестановок
@@ -74,6 +81,7 @@ public:
 
 class ShakerSort : public Sort {
 public:
+    //Виртуальный метод, который в последствии будет переопределён
     void sort(int* arr, int length_arr) override {
         comparisons = 0;  // Сброс счётчика сравнений
         swaps = 0;        // Сброс счётчика перестановок
@@ -81,6 +89,7 @@ public:
         int left_pose = 0;
         int right_pose = length_arr - 1;
         while (left_pose <= right_pose) {
+            // Идём вправо списки до правой позиции
             for (int i = right_pose; i > left_pose; i--) {
                 comparisons++;  // Увеличение счётчика сравнений
                 if (arr[i - 1] > arr[i]) {
