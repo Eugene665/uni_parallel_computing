@@ -261,7 +261,7 @@ void MainWindow::on_start_all_sort_button_clicked()
         auto start_bubble_sort = high_resolution_clock::now();
 
         std::thread th4([&](){ sorter_bubble.sort(bubble_arr, length_arr); });
-        th4.join();
+
         // Окончание измерения времени
         //clock_t end_bubble_sort = clock();
         auto end_bubble_sort = high_resolution_clock::now();
@@ -295,7 +295,6 @@ void MainWindow::on_start_all_sort_button_clicked()
         auto start_shaker_sort = high_resolution_clock::now();
 
         std::thread th5([&]() { sorter_shaker.sort(shaker_arr, length_arr); });
-        th5.join();
 
         // Окончание измерения времени
         //clock_t end_shaker_sort = clock();
@@ -329,7 +328,6 @@ void MainWindow::on_start_all_sort_button_clicked()
         auto start_selection_sort = high_resolution_clock::now();
 
         std::thread th6([&]() { sorter_selection.sort(selection_arr, length_arr); });
-        th6.join();
 
         // Окончание измерения времени
         //clock_t end_selection_sort = clock();
@@ -352,20 +350,33 @@ void MainWindow::on_start_all_sort_button_clicked()
                 out_arr_after(selection_arr, length_arr, "выбором");
             }
         }
+
+        th4.join();
+        th5.join();
+        th6.join();
+
         qDebug() << "\n\n";
 
     }
 
     else{
-
+        if (flag_out_arr == "да"){
+            // Вывод массива до сортировки
+            out_arr_before(bubble_arr, length_arr, "пузырьком");
+        }
         // Начало измерения времини
-        clock_t start_bubble_sort = clock();
+        //clock_t start_bubble_sort = clock();
+        auto start_bubble_sort = high_resolution_clock::now();
 
         sorter_bubble.sort(bubble_arr, length_arr);
 
         // Окончание измерения времени
-        clock_t end_bubble_sort = clock();
-        seconds_bubble_sort = (double)(end_bubble_sort - start_bubble_sort) / CLOCKS_PER_SEC;
+        //clock_t end_bubble_sort = clock();
+        auto end_bubble_sort = high_resolution_clock::now();
+
+        duration<double> intervar_bubble_sort = end_bubble_sort - start_bubble_sort;
+        seconds_bubble_sort = intervar_bubble_sort.count();
+
         qDebug() << "Затрачено секунд на сортироку пузырьком\n" << seconds_bubble_sort << "\n";
 
         comparisons_bubble = sorter_bubble.getComparisons();
@@ -382,21 +393,23 @@ void MainWindow::on_start_all_sort_button_clicked()
 
 
 
-
-
         if (flag_out_arr == "да"){
             // Вывод массива до сортировки
             out_arr_before(shaker_arr, length_arr, "шейкером");
         }
 
         // Начало измерения времини
-        clock_t start_shaker_sort = clock();
+        //clock_t start_shaker_sort = clock();
+        auto start_shaker_sort = high_resolution_clock::now();
 
         sorter_shaker.sort(shaker_arr, length_arr);
 
         // Окончание измерения времени
-        clock_t end_shaker_sort = clock();
-        seconds_shaker_sort = (double)(end_shaker_sort - start_shaker_sort) / CLOCKS_PER_SEC;
+        //clock_t end_shaker_sort = clock();
+        auto end_shaker_sort = high_resolution_clock::now();
+        duration<double> intervar_shaker_sort = end_shaker_sort - start_shaker_sort;
+        seconds_shaker_sort = intervar_shaker_sort.count();
+
         qDebug() << "Затрачено секунд на сортироку шейкером\n" << seconds_shaker_sort << "\n";
 
         comparisons_shaker = sorter_shaker.getComparisons();
@@ -411,20 +424,25 @@ void MainWindow::on_start_all_sort_button_clicked()
         qDebug() << "\n\n\n";
 
 
-
-
         if (flag_out_arr == "да"){
             // Вывод массива до сортировки
             out_arr_before(selection_arr, length_arr, "выбором");
         }
 
         // Начало измерения времини
-        clock_t start_selection_sort = clock();
+        //clock_t start_selection_sort = clock();
+        auto start_selection_sort = high_resolution_clock::now();
+
         sorter_selection.sort(selection_arr, length_arr);
 
         // Окончание измерения времени
-        clock_t end_selection_sort = clock();
-        seconds_selection_sort = (double)(end_selection_sort - start_selection_sort) / CLOCKS_PER_SEC;
+        //clock_t end_selection_sort = clock();
+
+        auto end_selection_sort = high_resolution_clock::now();
+
+        duration<double> intervar_selection_sort  = end_selection_sort - start_selection_sort;
+        seconds_selection_sort = intervar_selection_sort.count();
+
         qDebug() << "Затрачено секунд на сортироку выбором\n" << seconds_selection_sort << "\n";
 
         comparisons_selection = sorter_selection.getComparisons();
