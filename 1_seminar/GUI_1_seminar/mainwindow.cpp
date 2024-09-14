@@ -2,7 +2,9 @@
 #include "./ui_mainwindow.h"
 #include <QDebug>
 #include <time.h>
-
+#include <thread>
+#include <chrono>
+using namespace std::chrono;
 using namespace std;
 
 MainWindow::MainWindow(QWidget *parent)
@@ -39,6 +41,13 @@ void out_arr_after(int* arr, int length_arr, string name_sort) {
     }
     qDebug().noquote() << output;
     qDebug() << "\n";
+}
+
+template<typename T>
+void CopyArr(T* source_arr, T* sort_name_arr, int length_arr) {
+    for (int i = 0; i < length_arr; i++) {
+        sort_name_arr[i] = source_arr[i];
+    }
 }
 
 class Sort {
@@ -143,17 +152,17 @@ void MainWindow::on_start_all_sort_button_clicked()
 {
     window = new sorting_results_window(this);
 
-    bool parallel_sort;
-    if (ui->parallel_radio_button->isChecked()){
-        parallel_sort = true;
-    }
-    if (ui->sequentially_radio_button->isChecked()){
-        parallel_sort = false;
-    }
 
     int length_arr = ui->input_len_arr->text().toInt();
     //qDebug() << "длина массива:" << length_arr;
 
+    bool flag_parallel;
+    if (ui->parallel_radio_button->isChecked()){
+        flag_parallel = true;
+    }
+    if (ui->sequentially_radio_button->isChecked()){
+        flag_parallel = false;
+    }
     setlocale(LC_ALL,"Rus");
 
     /*
@@ -176,7 +185,7 @@ void MainWindow::on_start_all_sort_button_clicked()
     int arr[length_arr];
 
     for (int i = 0; i < length_arr; i++){
-        int num = 1 + rand() % 10;
+        int num = 1 + rand() % 100;
         arr[i] = num;
     }
 
@@ -198,122 +207,247 @@ void MainWindow::on_start_all_sort_button_clicked()
     }
     qDebug() << "\n\n\n";
 
-    //int bubbleData[3];
-    //int shakerData[3];
-    //int selectionData[3];
-
-    //BubbleSort---------------------------------------
-    // Копирования массива для сортировки пузырьком
     int bubble_arr[length_arr];
-    for (int i = 0; i < length_arr; i++) {
-        bubble_arr[i] = arr[i];
+    int shaker_arr[length_arr];
+    int selection_arr[length_arr];
+
+    if (flag_parallel){
+        std::thread th1([&]() { CopyArr(arr, bubble_arr, length_arr); });
+        std::thread th2([&]() { CopyArr(arr, shaker_arr, length_arr); });
+        std::thread th3([&]() { CopyArr(arr, selection_arr, length_arr); });
+
+        th1.join();
+        th2.join();
+        th3.join();
     }
 
-    if (flag_out_arr == "да"){
-        // Вывод массива до сортировки
-        out_arr_before(bubble_arr, length_arr, "пузырьком");
+    else{
+        CopyArr(arr, bubble_arr, length_arr);
+        CopyArr(arr, shaker_arr, length_arr);
+        CopyArr(arr, selection_arr, length_arr);
     }
 
     // Создание объекта BubbleSort
     BubbleSort sorter_bubble;
-    // Начало измерения времини
-    clock_t start_bubble_sort = clock();
-    // Вызов метода сортировки
-    sorter_bubble.sort(bubble_arr, length_arr);
-    // Окончание измерения времени
-    clock_t end_bubble_sort = clock();
-    double seconds_bubble_sort = (double)(end_bubble_sort - start_bubble_sort) / CLOCKS_PER_SEC;
-    qDebug() << "Затрачено секунд на сортироку пузырьком\n" << seconds_bubble_sort << "\n";
-
-    int comparisons_bubble = sorter_bubble.getComparisons();
-    int swaps_bubble = sorter_bubble.getSwaps();
-    qDebug() << "Сравнений (пузырьковая сортировка):" << comparisons_bubble;
-    qDebug() << "Перестановок (пузырьковая сортировка):" << swaps_bubble << "\n";
-    //bubbleData[0] = seconds_bubble_sort;
-    //bubbleData[1] = comparisons_bubble;
-    //bubbleData[2] = swaps_bubble;
-
-    if (flag_out_arr == "да"){
-        // Вывод отсортированного массива
-        out_arr_after(bubble_arr, length_arr, "пузырьком");
-    }
-    qDebug() << "\n\n\n";
-
-    //ShakerSort-------------------------------------------
-    // Копирования массива для сортировки шейкером
-    int shaker_arr[length_arr];
-    for (int i = 0; i < length_arr; i++) {
-        shaker_arr[i] = arr[i];
-    }
-
-    if (flag_out_arr == "да"){
-        // Вывод массива до сортировки
-        out_arr_before(shaker_arr, length_arr, "шейкером");
-    }
 
     // Создание объекта ShakerSort
     ShakerSort sorter_shaker;
-    // Начало измерения времини
-    clock_t start_shaker_sort = clock();
-    // Вызов метода сортировки
-    sorter_shaker.sort(shaker_arr, length_arr);
-    // Окончание измерения времени
-    clock_t end_shaker_sort = clock();
-    double seconds_shaker_sort = (double)(end_shaker_sort - start_shaker_sort) / CLOCKS_PER_SEC;
-    qDebug() << "Затрачено секунд на сортироку шейкером\n" << seconds_shaker_sort << "\n";
-
-    int comparisons_shaker = sorter_shaker.getComparisons();
-    int swaps_shaker = sorter_shaker.getSwaps();
-    qDebug() << "Сравнений (сортировка шейкером):" << comparisons_shaker;
-    qDebug() << "Перестановок (сортировка шейкером):" << swaps_shaker << "\n";
-    //shakerData[0] = seconds_shaker_sort;
-    //shakerData[1] = comparisons_shaker;
-    //shakerData[2] = swaps_shaker;
-
-    if (flag_out_arr == "да"){
-        // Вывод отсортированного массива
-        out_arr_after(shaker_arr, length_arr, "шейкером");
-    }
-    qDebug() << "\n\n\n";
-
-    //SelectionSort----------------------------------------
-    // Копирования массива для сортировки выбором
-    int  selection_arr[length_arr];
-    for (int i = 0; i < length_arr; i++) {
-        selection_arr[i] = arr[i];
-    }
-
-    if (flag_out_arr == "да"){
-        // Вывод массива до сортировки
-        out_arr_before(selection_arr, length_arr, "выбором");
-    }
 
     // Создание объекта SelectionSort
     SelectionSort sorter_selection;
-    // Начало измерения времини
-    clock_t start_selection_sort = clock();
-    // Вызов метода сортировки
-    sorter_selection.sort(selection_arr, length_arr);
-    // Окончание измерения времени
-    clock_t end_selection_sort = clock();
-    double seconds_selection_sort = (double)(end_selection_sort - start_selection_sort) / CLOCKS_PER_SEC;
-    qDebug() << "Затрачено секунд на сортироку выбором\n" << seconds_selection_sort << "\n";
 
-    int comparisons_selection = sorter_selection.getComparisons();
-    int swaps_selection = sorter_selection.getSwaps();
-    qDebug() << "Сравнений (сортировка выбором):" << comparisons_selection;
-    qDebug() << "Перестановок (сортировка выбором):" << swaps_selection << "\n";
-    //selectionData[0] = seconds_selection_sort;
-    //selectionData[1] = comparisons_selection;
-    //selectionData[2] = swaps_selection;
 
-    if (flag_out_arr == "да"){
-        // Вывод отсортированного массива
+    double seconds_bubble_sort;
+    int comparisons_bubble;
+    int swaps_bubble;
+
+    double seconds_shaker_sort;
+    int comparisons_shaker;
+    int swaps_shaker;
+
+    double seconds_selection_sort;
+    int comparisons_selection ;
+    int swaps_selection;
+
+
+    if (flag_parallel){
+
         if (flag_out_arr == "да"){
-            out_arr_after(selection_arr, length_arr, "выбором");
+            // Вывод массива до сортировки
+            out_arr_before(bubble_arr, length_arr, "пузырьком");
         }
+        // Начало измерения времини
+        //clock_t start_bubble_sort = clock();
+        auto start_bubble_sort = high_resolution_clock::now();
+
+        std::thread th4([&](){ sorter_bubble.sort(bubble_arr, length_arr); });
+        th4.join();
+        // Окончание измерения времени
+        //clock_t end_bubble_sort = clock();
+        auto end_bubble_sort = high_resolution_clock::now();
+
+        duration<double> intervar_bubble_sort = end_bubble_sort - start_bubble_sort;
+        seconds_bubble_sort = intervar_bubble_sort.count();
+
+        qDebug() << "Затрачено секунд на сортироку пузырьком\n" << seconds_bubble_sort << "\n";
+
+        comparisons_bubble = sorter_bubble.getComparisons();
+        swaps_bubble = sorter_bubble.getSwaps();
+        qDebug() << "Сравнений (пузырьковая сортировка):" << comparisons_bubble;
+        qDebug() << "Перестановок (пузырьковая сортировка):" << swaps_bubble << "\n";
+
+        if (flag_out_arr == "да"){
+            // Вывод отсортированного массива
+            out_arr_after(bubble_arr, length_arr, "пузырьком");
+        }
+        qDebug() << "\n\n\n";
+
+
+
+
+        if (flag_out_arr == "да"){
+            // Вывод массива до сортировки
+            out_arr_before(shaker_arr, length_arr, "шейкером");
+        }
+
+        // Начало измерения времини
+        //clock_t start_shaker_sort = clock();
+        auto start_shaker_sort = high_resolution_clock::now();
+
+        std::thread th5([&]() { sorter_shaker.sort(shaker_arr, length_arr); });
+        th5.join();
+
+        // Окончание измерения времени
+        //clock_t end_shaker_sort = clock();
+        auto end_shaker_sort = high_resolution_clock::now();
+        duration<double> intervar_shaker_sort = end_shaker_sort - start_shaker_sort;
+        seconds_shaker_sort = intervar_shaker_sort.count();
+
+        qDebug() << "Затрачено секунд на сортироку шейкером\n" << seconds_shaker_sort << "\n";
+
+        comparisons_shaker = sorter_shaker.getComparisons();
+        swaps_shaker = sorter_shaker.getSwaps();
+        qDebug() << "Сравнений (сортировка шейкером):" << comparisons_shaker;
+        qDebug() << "Перестановок (сортировка шейкером):" << swaps_shaker << "\n";
+
+        if (flag_out_arr == "да"){
+            // Вывод отсортированного массива
+            out_arr_after(shaker_arr, length_arr, "шейкером");
+        }
+        qDebug() << "\n\n\n";
+
+
+
+
+        if (flag_out_arr == "да"){
+            // Вывод массива до сортировки
+            out_arr_before(selection_arr, length_arr, "выбором");
+        }
+
+        // Начало измерения времини
+        //clock_t start_selection_sort = clock();
+        auto start_selection_sort = high_resolution_clock::now();
+
+        std::thread th6([&]() { sorter_selection.sort(selection_arr, length_arr); });
+        th6.join();
+
+        // Окончание измерения времени
+        //clock_t end_selection_sort = clock();
+
+        auto end_selection_sort = high_resolution_clock::now();
+
+        duration<double> intervar_selection_sort  = end_selection_sort - start_selection_sort;
+        seconds_selection_sort = intervar_selection_sort.count();
+
+        qDebug() << "Затрачено секунд на сортироку выбором\n" << seconds_selection_sort << "\n";
+
+        comparisons_selection = sorter_selection.getComparisons();
+        swaps_selection = sorter_selection.getSwaps();
+        qDebug() << "Сравнений (сортировка выбором):" << comparisons_selection;
+        qDebug() << "Перестановок (сортировка выбором):" << swaps_selection << "\n";
+
+        if (flag_out_arr == "да"){
+            // Вывод отсортированного массива
+            if (flag_out_arr == "да"){
+                out_arr_after(selection_arr, length_arr, "выбором");
+            }
+        }
+        qDebug() << "\n\n";
+
     }
-    qDebug() << "\n\n";
+
+    else{
+
+        // Начало измерения времини
+        clock_t start_bubble_sort = clock();
+
+        sorter_bubble.sort(bubble_arr, length_arr);
+
+        // Окончание измерения времени
+        clock_t end_bubble_sort = clock();
+        seconds_bubble_sort = (double)(end_bubble_sort - start_bubble_sort) / CLOCKS_PER_SEC;
+        qDebug() << "Затрачено секунд на сортироку пузырьком\n" << seconds_bubble_sort << "\n";
+
+        comparisons_bubble = sorter_bubble.getComparisons();
+        swaps_bubble = sorter_bubble.getSwaps();
+        qDebug() << "Сравнений (пузырьковая сортировка):" << comparisons_bubble;
+        qDebug() << "Перестановок (пузырьковая сортировка):" << swaps_bubble << "\n";
+
+        if (flag_out_arr == "да"){
+            // Вывод отсортированного массива
+            out_arr_after(bubble_arr, length_arr, "пузырьком");
+        }
+        qDebug() << "\n\n\n";
+
+
+
+
+
+
+        if (flag_out_arr == "да"){
+            // Вывод массива до сортировки
+            out_arr_before(shaker_arr, length_arr, "шейкером");
+        }
+
+        // Начало измерения времини
+        clock_t start_shaker_sort = clock();
+
+        sorter_shaker.sort(shaker_arr, length_arr);
+
+        // Окончание измерения времени
+        clock_t end_shaker_sort = clock();
+        seconds_shaker_sort = (double)(end_shaker_sort - start_shaker_sort) / CLOCKS_PER_SEC;
+        qDebug() << "Затрачено секунд на сортироку шейкером\n" << seconds_shaker_sort << "\n";
+
+        comparisons_shaker = sorter_shaker.getComparisons();
+        swaps_shaker = sorter_shaker.getSwaps();
+        qDebug() << "Сравнений (сортировка шейкером):" << comparisons_shaker;
+        qDebug() << "Перестановок (сортировка шейкером):" << swaps_shaker << "\n";
+
+        if (flag_out_arr == "да"){
+            // Вывод отсортированного массива
+            out_arr_after(shaker_arr, length_arr, "шейкером");
+        }
+        qDebug() << "\n\n\n";
+
+
+
+
+        if (flag_out_arr == "да"){
+            // Вывод массива до сортировки
+            out_arr_before(selection_arr, length_arr, "выбором");
+        }
+
+        // Начало измерения времини
+        clock_t start_selection_sort = clock();
+        sorter_selection.sort(selection_arr, length_arr);
+
+        // Окончание измерения времени
+        clock_t end_selection_sort = clock();
+        seconds_selection_sort = (double)(end_selection_sort - start_selection_sort) / CLOCKS_PER_SEC;
+        qDebug() << "Затрачено секунд на сортироку выбором\n" << seconds_selection_sort << "\n";
+
+        comparisons_selection = sorter_selection.getComparisons();
+        swaps_selection = sorter_selection.getSwaps();
+        qDebug() << "Сравнений (сортировка выбором):" << comparisons_selection;
+        qDebug() << "Перестановок (сортировка выбором):" << swaps_selection << "\n";
+
+        if (flag_out_arr == "да"){
+            // Вывод отсортированного массива
+            if (flag_out_arr == "да"){
+                out_arr_after(selection_arr, length_arr, "выбором");
+            }
+        }
+        qDebug() << "\n\n";
+
+    }
+
+    // Здесть переменные для отображения почему-то уже равны нулю
+
+    qDebug() << "Bubble sort time:" << seconds_bubble_sort;
+    qDebug() << "Bubble sort comparisons:" << comparisons_bubble;
+    qDebug() << "Bubble sort swaps:" << swaps_bubble;
+
 
     double sortData[9] = {seconds_bubble_sort, comparisons_bubble, swaps_bubble,
                           seconds_shaker_sort, comparisons_shaker, swaps_shaker,

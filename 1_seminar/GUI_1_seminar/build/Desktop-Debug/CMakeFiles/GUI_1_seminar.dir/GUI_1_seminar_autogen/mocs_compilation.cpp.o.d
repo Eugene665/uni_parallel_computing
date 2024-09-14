@@ -1,7 +1,7 @@
 CMakeFiles/GUI_1_seminar.dir/GUI_1_seminar_autogen/mocs_compilation.cpp.o: \
- /home/admin/uni_parallel_computing/1_seminar/GUI_1_seminar/build/Desktop-Debug/GUI_1_seminar_autogen/mocs_compilation.cpp \
+ /home/eugene/uni_parallel_computing/1_seminar/GUI_1_seminar/build/Desktop-Debug/GUI_1_seminar_autogen/mocs_compilation.cpp \
  /usr/include/stdc-predef.h \
- /home/admin/uni_parallel_computing/1_seminar/GUI_1_seminar/build/Desktop-Debug/GUI_1_seminar_autogen/EWIEGA46WW/moc_mainwindow.cpp \
+ /home/eugene/uni_parallel_computing/1_seminar/GUI_1_seminar/build/Desktop-Debug/GUI_1_seminar_autogen/EWIEGA46WW/moc_mainwindow.cpp \
  /usr/include/c++/14/memory /usr/include/c++/14/bits/memoryfwd.h \
  /usr/include/c++/14/x86_64-redhat-linux/bits/c++config.h \
  /usr/include/bits/wordsize.h \
@@ -97,20 +97,20 @@ CMakeFiles/GUI_1_seminar.dir/GUI_1_seminar_autogen/mocs_compilation.cpp.o: \
  /usr/include/c++/14/backward/auto_ptr.h \
  /usr/include/c++/14/pstl/glue_memory_defs.h \
  /usr/include/c++/14/pstl/execution_defs.h \
- /home/admin/uni_parallel_computing/1_seminar/GUI_1_seminar/build/Desktop-Debug/GUI_1_seminar_autogen/EWIEGA46WW/../../../../mainwindow.h \
- /home/admin/anaconda3/include/qt/QtWidgets/QMainWindow \
- /home/admin/anaconda3/include/qt/QtWidgets/qmainwindow.h \
- /home/admin/anaconda3/include/qt/QtWidgets/qtwidgetsglobal.h \
- /home/admin/anaconda3/include/qt/QtGui/qtguiglobal.h \
- /home/admin/anaconda3/include/qt/QtCore/qglobal.h \
+ /home/eugene/uni_parallel_computing/1_seminar/GUI_1_seminar/build/Desktop-Debug/GUI_1_seminar_autogen/EWIEGA46WW/../../../../mainwindow.h \
+ /home/eugene/anaconda3/include/qt/QtWidgets/QMainWindow \
+ /home/eugene/anaconda3/include/qt/QtWidgets/qmainwindow.h \
+ /home/eugene/anaconda3/include/qt/QtWidgets/qtwidgetsglobal.h \
+ /home/eugene/anaconda3/include/qt/QtGui/qtguiglobal.h \
+ /home/eugene/anaconda3/include/qt/QtCore/qglobal.h \
  /usr/include/c++/14/cstddef /usr/include/c++/14/utility \
  /usr/include/c++/14/bits/stl_relops.h \
  /usr/include/c++/14/initializer_list /usr/include/assert.h \
- /home/admin/anaconda3/include/qt/QtCore/qconfig.h \
- /home/admin/anaconda3/include/qt/QtCore/qtcore-config.h \
- /home/admin/anaconda3/include/qt/QtCore/qsystemdetection.h \
- /home/admin/anaconda3/include/qt/QtCore/qprocessordetection.h \
- /home/admin/anaconda3/include/qt/QtCore/qcompilerdetection.h \
+ /home/eugene/anaconda3/include/qt/QtCore/qconfig.h \
+ /home/eugene/anaconda3/include/qt/QtCore/qtcore-config.h \
+ /home/eugene/anaconda3/include/qt/QtCore/qsystemdetection.h \
+ /home/eugene/anaconda3/include/qt/QtCore/qprocessordetection.h \
+ /home/eugene/anaconda3/include/qt/QtCore/qcompilerdetection.h \
  /usr/include/c++/14/algorithm /usr/include/c++/14/bits/stl_algo.h \
  /usr/include/c++/14/bits/algorithmfwd.h \
  /usr/include/c++/14/bits/stl_heap.h \
@@ -123,31 +123,31 @@ CMakeFiles/GUI_1_seminar.dir/GUI_1_seminar_autogen/mocs_compilation.cpp.o: \
  /usr/include/alloca.h /usr/include/bits/stdlib-float.h \
  /usr/include/c++/14/bits/std_abs.h \
  /usr/include/c++/14/pstl/glue_algorithm_defs.h \
- /home/admin/anaconda3/include/qt/QtCore/qtypeinfo.h \
- /home/admin/anaconda3/include/qt/QtCore/qsysinfo.h \
- /home/admin/anaconda3/include/qt/QtCore/qlogging.h \
- /home/admin/anaconda3/include/qt/QtCore/qflags.h \
- /home/admin/anaconda3/include/qt/QtCore/qatomic.h \
- /home/admin/anaconda3/include/qt/QtCore/qbasicatomic.h \
- /home/admin/anaconda3/include/qt/QtCore/qatomic_cxx11.h \
- /home/admin/anaconda3/include/qt/QtCore/qgenericatomic.h \
+ /home/eugene/anaconda3/include/qt/QtCore/qtypeinfo.h \
+ /home/eugene/anaconda3/include/qt/QtCore/qsysinfo.h \
+ /home/eugene/anaconda3/include/qt/QtCore/qlogging.h \
+ /home/eugene/anaconda3/include/qt/QtCore/qflags.h \
+ /home/eugene/anaconda3/include/qt/QtCore/qatomic.h \
+ /home/eugene/anaconda3/include/qt/QtCore/qbasicatomic.h \
+ /home/eugene/anaconda3/include/qt/QtCore/qatomic_cxx11.h \
+ /home/eugene/anaconda3/include/qt/QtCore/qgenericatomic.h \
  /usr/include/c++/14/atomic \
- /home/admin/anaconda3/include/qt/QtCore/qglobalstatic.h \
- /home/admin/anaconda3/include/qt/QtCore/qnumeric.h \
- /home/admin/anaconda3/include/qt/QtCore/qversiontagging.h \
- /home/admin/anaconda3/include/qt/QtGui/qtgui-config.h \
- /home/admin/anaconda3/include/qt/QtWidgets/qtwidgets-config.h \
- /home/admin/anaconda3/include/qt/QtWidgets/qwidget.h \
- /home/admin/anaconda3/include/qt/QtGui/qwindowdefs.h \
- /home/admin/anaconda3/include/qt/QtCore/qobjectdefs.h \
- /home/admin/anaconda3/include/qt/QtCore/qnamespace.h \
- /home/admin/anaconda3/include/qt/QtCore/qobjectdefs_impl.h \
- /home/admin/anaconda3/include/qt/QtCore/qobject.h \
- /home/admin/anaconda3/include/qt/QtCore/qstring.h \
- /home/admin/anaconda3/include/qt/QtCore/qchar.h \
- /home/admin/anaconda3/include/qt/QtCore/qbytearray.h \
- /home/admin/anaconda3/include/qt/QtCore/qrefcount.h \
- /home/admin/anaconda3/include/qt/QtCore/qarraydata.h \
+ /home/eugene/anaconda3/include/qt/QtCore/qglobalstatic.h \
+ /home/eugene/anaconda3/include/qt/QtCore/qnumeric.h \
+ /home/eugene/anaconda3/include/qt/QtCore/qversiontagging.h \
+ /home/eugene/anaconda3/include/qt/QtGui/qtgui-config.h \
+ /home/eugene/anaconda3/include/qt/QtWidgets/qtwidgets-config.h \
+ /home/eugene/anaconda3/include/qt/QtWidgets/qwidget.h \
+ /home/eugene/anaconda3/include/qt/QtGui/qwindowdefs.h \
+ /home/eugene/anaconda3/include/qt/QtCore/qobjectdefs.h \
+ /home/eugene/anaconda3/include/qt/QtCore/qnamespace.h \
+ /home/eugene/anaconda3/include/qt/QtCore/qobjectdefs_impl.h \
+ /home/eugene/anaconda3/include/qt/QtCore/qobject.h \
+ /home/eugene/anaconda3/include/qt/QtCore/qstring.h \
+ /home/eugene/anaconda3/include/qt/QtCore/qchar.h \
+ /home/eugene/anaconda3/include/qt/QtCore/qbytearray.h \
+ /home/eugene/anaconda3/include/qt/QtCore/qrefcount.h \
+ /home/eugene/anaconda3/include/qt/QtCore/qarraydata.h \
  /usr/include/string.h /usr/include/strings.h \
  /usr/include/c++/14/stdlib.h /usr/include/c++/14/string \
  /usr/include/c++/14/bits/char_traits.h \
@@ -181,14 +181,14 @@ CMakeFiles/GUI_1_seminar.dir/GUI_1_seminar_autogen/mocs_compilation.cpp.o: \
  /usr/include/c++/14/system_error \
  /usr/include/c++/14/x86_64-redhat-linux/bits/error_constants.h \
  /usr/include/c++/14/stdexcept /usr/include/c++/14/bits/streambuf.tcc \
- /home/admin/anaconda3/include/qt/QtCore/qstringliteral.h \
- /home/admin/anaconda3/include/qt/QtCore/qstringalgorithms.h \
- /home/admin/anaconda3/include/qt/QtCore/qstringview.h \
- /home/admin/anaconda3/include/qt/QtCore/qlist.h \
- /home/admin/anaconda3/include/qt/QtCore/qalgorithms.h \
- /home/admin/anaconda3/include/qt/QtCore/qiterator.h \
- /home/admin/anaconda3/include/qt/QtCore/qhashfunctions.h \
- /home/admin/anaconda3/include/qt/QtCore/qpair.h \
+ /home/eugene/anaconda3/include/qt/QtCore/qstringliteral.h \
+ /home/eugene/anaconda3/include/qt/QtCore/qstringalgorithms.h \
+ /home/eugene/anaconda3/include/qt/QtCore/qstringview.h \
+ /home/eugene/anaconda3/include/qt/QtCore/qlist.h \
+ /home/eugene/anaconda3/include/qt/QtCore/qalgorithms.h \
+ /home/eugene/anaconda3/include/qt/QtCore/qiterator.h \
+ /home/eugene/anaconda3/include/qt/QtCore/qhashfunctions.h \
+ /home/eugene/anaconda3/include/qt/QtCore/qpair.h \
  /usr/include/c++/14/numeric /usr/include/c++/14/bits/stl_numeric.h \
  /usr/include/c++/14/pstl/glue_numeric_defs.h \
  /usr/include/c++/14/functional /usr/include/c++/14/bits/std_function.h \
@@ -203,8 +203,8 @@ CMakeFiles/GUI_1_seminar.dir/GUI_1_seminar_autogen/mocs_compilation.cpp.o: \
  /usr/include/c++/14/bits/stl_bvector.h \
  /usr/include/c++/14/bits/vector.tcc /usr/include/c++/14/array \
  /usr/include/c++/14/compare \
- /home/admin/anaconda3/include/qt/QtCore/qvector.h \
- /home/admin/anaconda3/include/qt/QtCore/qcontainertools_impl.h \
+ /home/eugene/anaconda3/include/qt/QtCore/qvector.h \
+ /home/eugene/anaconda3/include/qt/QtCore/qcontainertools_impl.h \
  /usr/include/c++/14/list /usr/include/c++/14/bits/stl_list.h \
  /usr/include/c++/14/bits/list.tcc \
  /usr/lib/gcc/x86_64-redhat-linux/14/include/limits.h \
@@ -213,56 +213,56 @@ CMakeFiles/GUI_1_seminar.dir/GUI_1_seminar_autogen/mocs_compilation.cpp.o: \
  /usr/include/bits/local_lim.h /usr/include/linux/limits.h \
  /usr/include/bits/posix2_lim.h /usr/include/bits/xopen_lim.h \
  /usr/include/bits/uio_lim.h \
- /home/admin/anaconda3/include/qt/QtCore/qbytearraylist.h \
- /home/admin/anaconda3/include/qt/QtCore/qstringlist.h \
- /home/admin/anaconda3/include/qt/QtCore/qregexp.h \
- /home/admin/anaconda3/include/qt/QtCore/qstringmatcher.h \
- /home/admin/anaconda3/include/qt/QtCore/qscopedpointer.h \
- /home/admin/anaconda3/include/qt/QtCore/qmetatype.h \
- /home/admin/anaconda3/include/qt/QtCore/qvarlengtharray.h \
- /home/admin/anaconda3/include/qt/QtCore/qcontainerfwd.h \
+ /home/eugene/anaconda3/include/qt/QtCore/qbytearraylist.h \
+ /home/eugene/anaconda3/include/qt/QtCore/qstringlist.h \
+ /home/eugene/anaconda3/include/qt/QtCore/qregexp.h \
+ /home/eugene/anaconda3/include/qt/QtCore/qstringmatcher.h \
+ /home/eugene/anaconda3/include/qt/QtCore/qscopedpointer.h \
+ /home/eugene/anaconda3/include/qt/QtCore/qmetatype.h \
+ /home/eugene/anaconda3/include/qt/QtCore/qvarlengtharray.h \
+ /home/eugene/anaconda3/include/qt/QtCore/qcontainerfwd.h \
  /usr/include/c++/14/map /usr/include/c++/14/bits/stl_tree.h \
  /usr/include/c++/14/bits/stl_map.h \
  /usr/include/c++/14/bits/stl_multimap.h \
- /home/admin/anaconda3/include/qt/QtCore/qobject_impl.h \
+ /home/eugene/anaconda3/include/qt/QtCore/qobject_impl.h \
  /usr/include/c++/14/chrono /usr/include/c++/14/bits/chrono.h \
  /usr/include/c++/14/ratio /usr/include/c++/14/cstdint \
  /usr/include/c++/14/limits /usr/include/c++/14/ctime \
  /usr/include/c++/14/bits/parse_numbers.h \
- /home/admin/anaconda3/include/qt/QtCore/qmargins.h \
- /home/admin/anaconda3/include/qt/QtGui/qpaintdevice.h \
- /home/admin/anaconda3/include/qt/QtCore/qrect.h \
- /home/admin/anaconda3/include/qt/QtCore/qsize.h \
- /home/admin/anaconda3/include/qt/QtCore/qpoint.h \
- /home/admin/anaconda3/include/qt/QtGui/qpalette.h \
- /home/admin/anaconda3/include/qt/QtGui/qcolor.h \
- /home/admin/anaconda3/include/qt/QtGui/qrgb.h \
- /home/admin/anaconda3/include/qt/QtGui/qrgba64.h \
- /home/admin/anaconda3/include/qt/QtGui/qbrush.h \
- /home/admin/anaconda3/include/qt/QtGui/qmatrix.h \
- /home/admin/anaconda3/include/qt/QtGui/qpolygon.h \
- /home/admin/anaconda3/include/qt/QtGui/qregion.h \
- /home/admin/anaconda3/include/qt/QtCore/qdatastream.h \
- /home/admin/anaconda3/include/qt/QtCore/qiodevice.h \
- /home/admin/anaconda3/include/qt/QtCore/qline.h \
- /home/admin/anaconda3/include/qt/QtGui/qtransform.h \
- /home/admin/anaconda3/include/qt/QtGui/qimage.h \
- /home/admin/anaconda3/include/qt/QtGui/qpixelformat.h \
- /home/admin/anaconda3/include/qt/QtGui/qpixmap.h \
- /home/admin/anaconda3/include/qt/QtCore/qsharedpointer.h \
- /home/admin/anaconda3/include/qt/QtCore/qshareddata.h \
- /home/admin/anaconda3/include/qt/QtCore/qhash.h \
- /home/admin/anaconda3/include/qt/QtCore/qsharedpointer_impl.h \
- /home/admin/anaconda3/include/qt/QtGui/qfont.h \
- /home/admin/anaconda3/include/qt/QtGui/qfontmetrics.h \
- /home/admin/anaconda3/include/qt/QtGui/qfontinfo.h \
- /home/admin/anaconda3/include/qt/QtWidgets/qsizepolicy.h \
- /home/admin/anaconda3/include/qt/QtGui/qcursor.h \
- /home/admin/anaconda3/include/qt/QtGui/qkeysequence.h \
- /home/admin/anaconda3/include/qt/QtWidgets/qtabwidget.h \
- /home/admin/anaconda3/include/qt/QtGui/qicon.h \
- /home/admin/uni_parallel_computing/1_seminar/GUI_1_seminar/build/Desktop-Debug/GUI_1_seminar_autogen/EWIEGA46WW/../../../../sorting_results_window.h \
- /home/admin/anaconda3/include/qt/QtWidgets/QDialog \
- /home/admin/anaconda3/include/qt/QtWidgets/qdialog.h \
- /home/admin/uni_parallel_computing/1_seminar/GUI_1_seminar/build/Desktop-Debug/GUI_1_seminar_autogen/EWIEGA46WW/moc_sorting_results_window.cpp \
- /home/admin/uni_parallel_computing/1_seminar/GUI_1_seminar/build/Desktop-Debug/GUI_1_seminar_autogen/EWIEGA46WW/../../../../sorting_results_window.h
+ /home/eugene/anaconda3/include/qt/QtCore/qmargins.h \
+ /home/eugene/anaconda3/include/qt/QtGui/qpaintdevice.h \
+ /home/eugene/anaconda3/include/qt/QtCore/qrect.h \
+ /home/eugene/anaconda3/include/qt/QtCore/qsize.h \
+ /home/eugene/anaconda3/include/qt/QtCore/qpoint.h \
+ /home/eugene/anaconda3/include/qt/QtGui/qpalette.h \
+ /home/eugene/anaconda3/include/qt/QtGui/qcolor.h \
+ /home/eugene/anaconda3/include/qt/QtGui/qrgb.h \
+ /home/eugene/anaconda3/include/qt/QtGui/qrgba64.h \
+ /home/eugene/anaconda3/include/qt/QtGui/qbrush.h \
+ /home/eugene/anaconda3/include/qt/QtGui/qmatrix.h \
+ /home/eugene/anaconda3/include/qt/QtGui/qpolygon.h \
+ /home/eugene/anaconda3/include/qt/QtGui/qregion.h \
+ /home/eugene/anaconda3/include/qt/QtCore/qdatastream.h \
+ /home/eugene/anaconda3/include/qt/QtCore/qiodevice.h \
+ /home/eugene/anaconda3/include/qt/QtCore/qline.h \
+ /home/eugene/anaconda3/include/qt/QtGui/qtransform.h \
+ /home/eugene/anaconda3/include/qt/QtGui/qimage.h \
+ /home/eugene/anaconda3/include/qt/QtGui/qpixelformat.h \
+ /home/eugene/anaconda3/include/qt/QtGui/qpixmap.h \
+ /home/eugene/anaconda3/include/qt/QtCore/qsharedpointer.h \
+ /home/eugene/anaconda3/include/qt/QtCore/qshareddata.h \
+ /home/eugene/anaconda3/include/qt/QtCore/qhash.h \
+ /home/eugene/anaconda3/include/qt/QtCore/qsharedpointer_impl.h \
+ /home/eugene/anaconda3/include/qt/QtGui/qfont.h \
+ /home/eugene/anaconda3/include/qt/QtGui/qfontmetrics.h \
+ /home/eugene/anaconda3/include/qt/QtGui/qfontinfo.h \
+ /home/eugene/anaconda3/include/qt/QtWidgets/qsizepolicy.h \
+ /home/eugene/anaconda3/include/qt/QtGui/qcursor.h \
+ /home/eugene/anaconda3/include/qt/QtGui/qkeysequence.h \
+ /home/eugene/anaconda3/include/qt/QtWidgets/qtabwidget.h \
+ /home/eugene/anaconda3/include/qt/QtGui/qicon.h \
+ /home/eugene/uni_parallel_computing/1_seminar/GUI_1_seminar/build/Desktop-Debug/GUI_1_seminar_autogen/EWIEGA46WW/../../../../sorting_results_window.h \
+ /home/eugene/anaconda3/include/qt/QtWidgets/QDialog \
+ /home/eugene/anaconda3/include/qt/QtWidgets/qdialog.h \
+ /home/eugene/uni_parallel_computing/1_seminar/GUI_1_seminar/build/Desktop-Debug/GUI_1_seminar_autogen/EWIEGA46WW/moc_sorting_results_window.cpp \
+ /home/eugene/uni_parallel_computing/1_seminar/GUI_1_seminar/build/Desktop-Debug/GUI_1_seminar_autogen/EWIEGA46WW/../../../../sorting_results_window.h

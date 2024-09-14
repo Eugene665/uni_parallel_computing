@@ -10,7 +10,7 @@ void DoWork(){
 
   for (int i = 0; i < 10; i++){
     cout << "id потока " << this_thread::get_id()<< "\t dowork \n";
-    this_thread::sleep_for(chrono::milliseconds(1000));
+    this_thread::sleep_for(chrono::milliseconds(500));
   }
 
 }
@@ -18,16 +18,11 @@ void DoWork(){
 int main(){
   setlocale(LC_ALL, "ru");
 
-  thread th(DoWork);
-
-  //DoWork();
+  DoWork();
 
   for (int i = 0; i < 10; i++){
     cout << "id потока " << this_thread::get_id()<< "\t main \n";
     this_thread::sleep_for(chrono::milliseconds(500));
   }
-
-  th.join();
-
   return 0;
 }
