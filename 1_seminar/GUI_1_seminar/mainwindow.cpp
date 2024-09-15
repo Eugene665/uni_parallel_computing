@@ -1,3 +1,4 @@
+
 #include "mainwindow.h"
 #include "./ui_mainwindow.h"
 #include <QDebug>
@@ -24,14 +25,6 @@ void Swap(int& a, int& b) {
     int temp = a;
     a = b;
     b = temp;
-}
-
-void log_time(const std::string& message) {
-    auto now = high_resolution_clock::now();
-    auto now_c = system_clock::to_time_t(system_clock::now());
-    auto now_ms = duration_cast<milliseconds>(now.time_since_epoch()) % 1000;
-    std::lock_guard<std::mutex> lock(mtx);
-    qDebug() << QString::fromStdString(message) << QDateTime::fromSecsSinceEpoch(now_c).toString("hh:mm:ss") << "." << now_ms.count();
 }
 
 void out_arr_before(int* arr, int length_arr, string name_sort) {
@@ -163,28 +156,19 @@ void MainWindow::on_start_all_sort_button_clicked() {
     int shaker_arr[length_arr];
     int selection_arr[length_arr];
 
-    // Замеры времени копирования массивов
-    auto copy_start = high_resolution_clock::now();
-
     if (flag_parallel) {
-        log_time("Начало копирования массивов в параллельном режиме");
-        std::thread th1([&]() { CopyArr(arr, bubble_arr, length_arr); log_time("Завершено копирование для пузырьковой сортировки"); });
-        std::thread th2([&]() { CopyArr(arr, shaker_arr, length_arr); log_time("Завершено копирование для шейкерной сортировки"); });
-        std::thread th3([&]() { CopyArr(arr, selection_arr, length_arr); log_time("Завершено копирование для сортировки выбором"); });
+        std::thread th1([&]() { CopyArr(arr, bubble_arr, length_arr); });
+        std::thread th2([&]() { CopyArr(arr, shaker_arr, length_arr);  });
+        std::thread th3([&]() { CopyArr(arr, selection_arr, length_arr);  });
 
         th1.join();
         th2.join();
         th3.join();
     } else {
-        log_time("Начало копирования массивов в последовательном режиме");
         CopyArr(arr, bubble_arr, length_arr);
         CopyArr(arr, shaker_arr, length_arr);
         CopyArr(arr, selection_arr, length_arr);
-        log_time("Копирование массивов завершено");
     }
-
-    auto copy_end = high_resolution_clock::now();
-    qDebug() << "Время на копирование массивов (сек):" << duration_cast<duration<double>>(copy_end - copy_start).count();
 
     BubbleSort sorter_bubble;
     ShakerSort sorter_shaker;
@@ -194,12 +178,10 @@ void MainWindow::on_start_all_sort_button_clicked() {
         if (flag_out_arr) out_arr_before(arr, length_arr, sort_name);
 
         auto start_time = high_resolution_clock::now();
-        log_time("Начало сортировки: " + sort_name);
 
         sorter.sort(arr, length_arr);
 
         auto end_time = high_resolution_clock::now();
-        log_time("Завершение сортировки: " + sort_name);
 
         std::chrono::duration<double> time_span = end_time - start_time;
         seconds = time_span.count();
@@ -215,7 +197,6 @@ void MainWindow::on_start_all_sort_button_clicked() {
     int bubble_swaps, shaker_swaps, selection_swaps;
 
     if (flag_parallel) {
-        log_time("Начало параллельной сортировки");
         std::thread th1([&]() { sort_and_measure(std::ref(sorter_bubble), bubble_arr, "пузырьком", std::ref(bubble_time), std::ref(bubble_comparisons), std::ref(bubble_swaps)); });
         std::thread th2([&]() { sort_and_measure(std::ref(sorter_shaker), shaker_arr, "шейкером", std::ref(shaker_time), std::ref(shaker_comparisons), std::ref(shaker_swaps)); });
         std::thread th3([&]() { sort_and_measure(std::ref(sorter_selection), selection_arr, "выбором", std::ref(selection_time), std::ref(selection_comparisons), std::ref(selection_swaps)); });
@@ -223,13 +204,10 @@ void MainWindow::on_start_all_sort_button_clicked() {
         th1.join();
         th2.join();
         th3.join();
-        log_time("Параллельная сортировка завершена");
     } else {
-        log_time("Начало последовательной сортировки");
         sort_and_measure(std::ref(sorter_bubble), bubble_arr, "пузырьком", std::ref(bubble_time), std::ref(bubble_comparisons), std::ref(bubble_swaps));
         sort_and_measure(std::ref(sorter_shaker), shaker_arr, "шейкером", std::ref(shaker_time), std::ref(shaker_comparisons), std::ref(shaker_swaps));
         sort_and_measure(std::ref(sorter_selection), selection_arr, "выбором", std::ref(selection_time), std::ref(selection_comparisons), std::ref(selection_swaps));
-        log_time("Последовательная сортировка завершена");
     }
     double sortData[9] = {
 
