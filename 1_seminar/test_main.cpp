@@ -1,130 +1,121 @@
 
-
-
 #include <iostream>
 #include <vector>
-#include <thread>
 #include <algorithm>
-#include <chrono>
 #include <random>
+#include <thread>
+#include <chrono>
 
-// Функция для генерации массива случайных чисел
-std::vector<int> generateArray(int size) {
-    std::vector<int> arr(size);
-    std::random_device rd;
-    std::mt19937 gen(rd());
-    std::uniform_int_distribution<> dis(1, 10000);
+using namespace std;
+using namespace chrono;
 
-    for (int i = 0; i < size; ++i) {
-        arr[i] = dis(gen);
-    }
-
+// Функция для генерации массива случайных чисел от 0 до 20
+vector<int> generateArray(int size) {
+    vector<int> arr(size);
+    random_device rd;
+    mt19937 gen(rd());
+    uniform_int_distribution<> dis(0, 20);
+    generate(arr.begin(), arr.end(), [&]() { return dis(gen); });
     return arr;
 }
 
 // Пузырьковая сортировка
-void bubbleSort(std::vector<int>& arr) {
-    for (size_t i = 0; i < arr.size() - 1; ++i) {
+void bubbleSort(vector<int>& arr) {
+    for (size_t i = 0; i < arr.size(); ++i) {
         for (size_t j = 0; j < arr.size() - i - 1; ++j) {
             if (arr[j] > arr[j + 1]) {
-                std::swap(arr[j], arr[j + 1]);
+                swap(arr[j], arr[j + 1]);
             }
         }
     }
 }
 
+// Шейкерная сортировка
+void shakerSort(vector<int>& arr) {
+    bool swapped = true;
+    size_t start = 0;
+    size_t end = arr.size() - 1;
+    while (swapped) {
+        swapped = false;
+        for (size_t i = start; i < end; ++i) {
+            if (arr[i] > arr[i + 1]) {
+                swap(arr[i], arr[i + 1]);
+                swapped = true;
+            }
+        }
+        if (!swapped) break;
+        swapped = false;
+        --end;
+        for (size_t i = end; i > start; --i) {
+            if (arr[i - 1] > arr[i]) {
+                swap(arr[i - 1], arr[i]);
+                swapped = true;
+            }
+        }
+        ++start;
+    }
+}
+
 // Сортировка вставками
-void insertionSort(std::vector<int>& arr) {
+void insertionSort(vector<int>& arr) {
     for (size_t i = 1; i < arr.size(); ++i) {
         int key = arr[i];
         int j = i - 1;
         while (j >= 0 && arr[j] > key) {
             arr[j + 1] = arr[j];
-            j--;
+            --j;
         }
         arr[j + 1] = key;
     }
 }
 
-// Обертка для замера времени сортировки
-void sortAndMeasureTime(const std::string& sortName, std::vector<int> arr, void(*sortFunc)(std::vector<int>&)) {
-    auto start = std::chrono::high_resolution_clock::now();
-    
-    sortFunc(arr);
-    
-    auto end = std::chrono::high_resolution_clock::now();
-    std::chrono::duration<double> duration = end - start;
-    
-    std::cout << sortName << " завершена за " << duration.count() << " секунд.\n";
+// Функция для замера времени сортировки
+template<typename Func>
+void measureSortTime(Func sortFunction, vector<int> arr, const string& sortName) {
+    auto start = high_resolution_clock::now();
+    sortFunction(arr);
+    auto end = high_resolution_clock::now();
+    auto duration = duration_cast<milliseconds>(end - start);
+    cout << sortName << " завершена за: " << duration.count() << " мс" << endl;
+}
+
+// Последовательная сортировка
+void sequentialSort(vector<int> arr) {
+    measureSortTime(bubbleSort, arr, "Пузырьковая сортировка");
+    measureSortTime(shakerSort, arr, "Шейкерная сортировка");
+    measureSortTime(insertionSort, arr, "Сортировка вставками");
+}
+
+// Параллельная сортировка
+void parallelSort(vector<int> arr) {
+    thread t1([&]() { measureSortTime(bubbleSort, arr, "Пузырьковая сортировка"); });
+    thread t2([&]() { measureSortTime(shakerSort, arr, "Шейкерная сортировка"); });
+    thread t3([&]() { measureSortTime(insertionSort, arr, "Сортировка вставками"); });
+
+    t1.join();
+    t2.join();
+    t3.join();
 }
 
 int main() {
-    const int arraySize = 100000;
+    vector<int> arr = generateArray(50000);
 
-    // Генерируем массивы
-    std::vector<int> arr1 = generateArray(arraySize);
-    std::vector<int> arr2 = arr1;  // Копия для другой сортировки
-    std::vector<int> arr3 = arr1;  // Копия для третьей сортировки
+    cout << "Выберите тип сортировки: " << endl;
+    cout << "1. Последовательная сортировка" << endl;
+    cout << "2. Параллельная сортировка" << endl;
+    int choice;
+    cin >> choice;
 
-    // Запуск сортировок в разных потоках
-    std::thread thread1(sortAndMeasureTime, "Пузырьковая сортировка", arr1, bubbleSort);
-    std::thread thread2(sortAndMeasureTime, "Сортировка вставками", arr2, insertionSort);
-    
-    std::thread thread3(sortAndMeasureTime, "Сортировка вставками", arr3, insertionSort);
-
-
-    // Ожидание завершения всех потоков
-    thread1.join();
-    thread2.join();
-    thread3.join();
+    if (choice == 1) {
+        sequentialSort(arr);
+    } else if (choice == 2) {
+        parallelSort(arr);
+    } else {
+        cout << "Неверный выбор!" << endl;
+    }
 
     return 0;
 }
 
 
 
-
-/*
-#include <iostream>
-#include <thread>
-#include <chrono>
-
-using namespace std;
-
-void DoWork(){
-
-  setlocale(LC_ALL, "ru");
-
-  for (int i = 0; i < 10; i++){
-    cout << "id потока " << this_thread::get_id()<< "\t dowork \n";
-    this_thread::sleep_for(chrono::milliseconds(1000));
-  }
-
-}
-
-void DoWork2(){
-
-for (int i = 0; i < 10; i++){
-  cout << "id потока " << this_thread::get_id() << "\t dowork 2 \n";
-  this_thread::sleep_for(chrono::milliseconds(750));
-}
-
-}
-
-int main(){
-  setlocale(LC_ALL, "ru");
-
-  thread th(DoWork);
-  thread th2(DoWork2);
-  //DoWork();
-
-  for (int i = 0; i < 10; i++){
-    cout << "id потока " << this_thread::get_id()<< "\t main \n";
-    this_thread::sleep_for(chrono::milliseconds(500));
-  }
-
-  th.join();
-  th2.join();
-  return 0;
-}
-*/
