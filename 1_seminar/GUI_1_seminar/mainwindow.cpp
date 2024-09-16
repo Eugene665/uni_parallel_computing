@@ -1,4 +1,3 @@
-
 #include "mainwindow.h"
 #include "./ui_mainwindow.h"
 #include <QDebug>
@@ -27,7 +26,7 @@ void Swap(int& a, int& b) {
     b = temp;
 }
 
-void out_arr_before(int* arr, int length_arr, string name_sort) {
+void out_arr_before(int* arr, int length_arr, const string& name_sort) {
     // Вывод массива до сортировки
     qDebug() << "Массив до сортировки " << QString::fromStdString(name_sort);
     QString output;
@@ -38,7 +37,7 @@ void out_arr_before(int* arr, int length_arr, string name_sort) {
     qDebug() << "\n";
 }
 
-void out_arr_after(int* arr, int length_arr, string name_sort) {
+void out_arr_after(int* arr, int length_arr, const string& name_sort) {
     // Вывод массива после сортировки
     qDebug() << "Массив после сортировки " << QString::fromStdString(name_sort);
     QString output;
@@ -50,17 +49,13 @@ void out_arr_after(int* arr, int length_arr, string name_sort) {
 }
 
 template<typename T>
-void CopyArr(T* source_arr, T* sort_name_arr, int length_arr) {
-    for (int i = 0; i < length_arr; i++) {
-        sort_name_arr[i] = source_arr[i];
-    }
+void CopyArr(const T* source_arr, T* dest_arr, int length_arr) {
+    std::copy(source_arr, source_arr + length_arr, dest_arr);
 }
 
 class Sort {
 public:
-    // Виртуальный метод, который впоследствии будет переопределён
     virtual void sort(int* arr, int length_arr) = 0;
-
     int getComparisons() const { return comparisons; }
     int getSwaps() const { return swaps; }
 
@@ -71,7 +66,6 @@ protected:
 
 class BubbleSort : public Sort {
 public:
-    // Переопределение функции
     void sort(int* arr, int length_arr) override {
         comparisons = 0;
         swaps = 0;
@@ -147,39 +141,38 @@ void MainWindow::on_start_all_sort_button_clicked() {
     bool flag_parallel = ui->parallel_radio_button->isChecked();
     bool flag_out_arr = ui->checkBox->isChecked();
 
-    int arr[length_arr];
-    for (int i = 0; i < length_arr; i++) {
-        arr[i] = rand() % 20;
-    }
+    std::vector<int> arr(length_arr);
+    std::generate(arr.begin(), arr.end(), []() { return rand() % 20; });
 
-    int bubble_arr[length_arr];
-    int shaker_arr[length_arr];
-    int selection_arr[length_arr];
+    std::vector<int> bubble_arr(length_arr);
+    std::vector<int> shaker_arr(length_arr);
+    std::vector<int> selection_arr(length_arr);
 
     if (flag_parallel) {
-        std::thread th1([&]() { CopyArr(arr, bubble_arr, length_arr); });
-        std::thread th2([&]() { CopyArr(arr, shaker_arr, length_arr);  });
-        std::thread th3([&]() { CopyArr(arr, selection_arr, length_arr);  });
+        std::thread th1([&]() { CopyArr(arr.data(), bubble_arr.data(), length_arr); });
+        std::thread th2([&]() { CopyArr(arr.data(), shaker_arr.data(), length_arr); });
+        std::thread th3([&]() { CopyArr(arr.data(), selection_arr.data(), length_arr); });
 
         th1.join();
         th2.join();
         th3.join();
+
     } else {
-        CopyArr(arr, bubble_arr, length_arr);
-        CopyArr(arr, shaker_arr, length_arr);
-        CopyArr(arr, selection_arr, length_arr);
+        CopyArr(arr.data(), bubble_arr.data(), length_arr);
+        CopyArr(arr.data(), shaker_arr.data(), length_arr);
+        CopyArr(arr.data(), selection_arr.data(), length_arr);
     }
 
     BubbleSort sorter_bubble;
     ShakerSort sorter_shaker;
     SelectionSort sorter_selection;
 
-    auto sort_and_measure = [&](Sort& sorter, int* arr, std::string sort_name, double& seconds, int& comparisons, int& swaps) {
-        if (flag_out_arr) out_arr_before(arr, length_arr, sort_name);
+    auto sort_and_measure = [&](Sort& sorter, std::vector<int>& arr, const std::string& sort_name, double& seconds, int& comparisons, int& swaps) {
+        if (flag_out_arr) out_arr_before(arr.data(), length_arr, sort_name);
 
         auto start_time = high_resolution_clock::now();
 
-        sorter.sort(arr, length_arr);
+        sorter.sort(arr.data(), length_arr);
 
         auto end_time = high_resolution_clock::now();
 
@@ -189,7 +182,7 @@ void MainWindow::on_start_all_sort_button_clicked() {
         comparisons = sorter.getComparisons();
         swaps = sorter.getSwaps();
 
-        if (flag_out_arr) out_arr_after(arr, length_arr, sort_name);
+        if (flag_out_arr) out_arr_after(arr.data(), length_arr, sort_name);
     };
 
     double bubble_time, shaker_time, selection_time;
@@ -197,20 +190,23 @@ void MainWindow::on_start_all_sort_button_clicked() {
     int bubble_swaps, shaker_swaps, selection_swaps;
 
     if (flag_parallel) {
-        std::thread th1([&]() { sort_and_measure(std::ref(sorter_bubble), bubble_arr, "пузырьком", std::ref(bubble_time), std::ref(bubble_comparisons), std::ref(bubble_swaps)); });
-        std::thread th2([&]() { sort_and_measure(std::ref(sorter_shaker), shaker_arr, "шейкером", std::ref(shaker_time), std::ref(shaker_comparisons), std::ref(shaker_swaps)); });
-        std::thread th3([&]() { sort_and_measure(std::ref(sorter_selection), selection_arr, "выбором", std::ref(selection_time), std::ref(selection_comparisons), std::ref(selection_swaps)); });
+
+        std::thread th1([&]() { sort_and_measure(sorter_bubble, bubble_arr, "пузырьком", bubble_time, bubble_comparisons, bubble_swaps); });
+        std::thread th2([&]() { sort_and_measure(sorter_shaker, shaker_arr, "шейкером", shaker_time, shaker_comparisons, shaker_swaps); });
+        std::thread th3([&]() { sort_and_measure(sorter_selection, selection_arr, "выбором", selection_time, selection_comparisons, selection_swaps); });
 
         th1.join();
         th2.join();
         th3.join();
-    } else {
-        sort_and_measure(std::ref(sorter_bubble), bubble_arr, "пузырьком", std::ref(bubble_time), std::ref(bubble_comparisons), std::ref(bubble_swaps));
-        sort_and_measure(std::ref(sorter_shaker), shaker_arr, "шейкером", std::ref(shaker_time), std::ref(shaker_comparisons), std::ref(shaker_swaps));
-        sort_and_measure(std::ref(sorter_selection), selection_arr, "выбором", std::ref(selection_time), std::ref(selection_comparisons), std::ref(selection_swaps));
-    }
-    double sortData[9] = {
 
+    } else {
+
+        sort_and_measure(sorter_bubble, bubble_arr, "пузырьком", bubble_time, bubble_comparisons, bubble_swaps);
+        sort_and_measure(sorter_shaker, shaker_arr, "шейкером", shaker_time, shaker_comparisons, shaker_swaps);
+        sort_and_measure(sorter_selection, selection_arr, "выбором", selection_time, selection_comparisons, selection_swaps);
+    }
+
+    double sortData[9] = {
         bubble_time,
         static_cast<double>(bubble_comparisons),
         static_cast<double>(bubble_swaps),
@@ -220,7 +216,6 @@ void MainWindow::on_start_all_sort_button_clicked() {
         selection_time,
         static_cast<double>(selection_comparisons),
         static_cast<double>(selection_swaps)
-
     };
 
     window->setSortData(sortData);
