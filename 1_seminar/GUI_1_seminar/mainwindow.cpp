@@ -228,13 +228,17 @@ void MainWindow::on_start_all_sort_button_clicked() {
         if (flag_out_arr) out_arr_before(arr.data(), length_arr, sort_name);
         // Начало счёта времени
         auto start_time = high_resolution_clock::now();
+        //QDateTime start_time = QDateTime::currentDateTime();
         // Запуск метода класса сортировки
         sorter.sort(arr.data(), length_arr);
         // Окончание счёта времени
         auto end_time = high_resolution_clock::now();
+        //QDateTime end_time = QDateTime::currentDateTime();
         // Подсчёт длительности сортировки
         std::chrono::duration<double> time_span = end_time - start_time;
         seconds = time_span.count();
+        //qint64 time_diff = start_time.msecsTo(end_time);
+        //seconds = static_cast<double>(time_diff) / 1000.0;  // Преобразование миллисекунд в секунды
         // Вытаскиваем кол-ва сравнений и перемещений
         comparisons = sorter.getComparisons();
         swaps = sorter.getSwaps();
