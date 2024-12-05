@@ -1,0 +1,15 @@
+/home/admin/uni_parallel_computing/Project_2/MatrixMultiplication/bin/Debug/net8.0/MatrixMultiplication
+/home/admin/uni_parallel_computing/Project_2/MatrixMultiplication/bin/Debug/net8.0/MatrixMultiplication.deps.json
+/home/admin/uni_parallel_computing/Project_2/MatrixMultiplication/bin/Debug/net8.0/MatrixMultiplication.runtimeconfig.json
+/home/admin/uni_parallel_computing/Project_2/MatrixMultiplication/bin/Debug/net8.0/MatrixMultiplication.dll
+/home/admin/uni_parallel_computing/Project_2/MatrixMultiplication/bin/Debug/net8.0/MatrixMultiplication.pdb
+/home/admin/uni_parallel_computing/Project_2/MatrixMultiplication/obj/Debug/net8.0/MatrixMultiplication.GeneratedMSBuildEditorConfig.editorconfig
+/home/admin/uni_parallel_computing/Project_2/MatrixMultiplication/obj/Debug/net8.0/MatrixMultiplication.AssemblyInfoInputs.cache
+/home/admin/uni_parallel_computing/Project_2/MatrixMultiplication/obj/Debug/net8.0/MatrixMultiplication.AssemblyInfo.cs
+/home/admin/uni_parallel_computing/Project_2/MatrixMultiplication/obj/Debug/net8.0/MatrixMultiplication.csproj.CoreCompileInputs.cache
+/home/admin/uni_parallel_computing/Project_2/MatrixMultiplication/obj/Debug/net8.0/MatrixMultiplication.sourcelink.json
+/home/admin/uni_parallel_computing/Project_2/MatrixMultiplication/obj/Debug/net8.0/MatrixMultiplication.dll
+/home/admin/uni_parallel_computing/Project_2/MatrixMultiplication/obj/Debug/net8.0/refint/MatrixMultiplication.dll
+/home/admin/uni_parallel_computing/Project_2/MatrixMultiplication/obj/Debug/net8.0/MatrixMultiplication.pdb
+/home/admin/uni_parallel_computing/Project_2/MatrixMultiplication/obj/Debug/net8.0/MatrixMultiplication.genruntimeconfig.cache
+/home/admin/uni_parallel_computing/Project_2/MatrixMultiplication/obj/Debug/net8.0/ref/MatrixMultiplication.dll

@@ -1,0 +1,79 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-.-Debug-40381268166b7c848c56.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.5"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "GUI_1_seminar",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "GUI_1_seminar::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-GUI_1_seminar-Debug-0ad1ad6cb9e3f6665334.json",
+					"name" : "GUI_1_seminar",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "GUI_1_seminar_autogen::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-GUI_1_seminar_autogen-Debug-016437082f7b8051e0ff.json",
+					"name" : "GUI_1_seminar_autogen",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "GUI_1_seminar_autogen_timestamp_deps::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-GUI_1_seminar_autogen_timestamp_deps-Debug-fae79bf19ba7ec1f7fa6.json",
+					"name" : "GUI_1_seminar_autogen_timestamp_deps",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/home/admin/uni_parallel_computing/1_seminar/GUI_1_seminar/build/Desktop-Debug",
+		"source" : "/home/admin/uni_parallel_computing/1_seminar/GUI_1_seminar"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 6
+	}
+}

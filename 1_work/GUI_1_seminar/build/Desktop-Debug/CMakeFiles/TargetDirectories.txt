@@ -1,0 +1,9 @@
+/home/admin/uni_parallel_computing/1_seminar/GUI_1_seminar/build/Desktop-Debug/CMakeFiles/GUI_1_seminar.dir
+/home/admin/uni_parallel_computing/1_seminar/GUI_1_seminar/build/Desktop-Debug/CMakeFiles/edit_cache.dir
+/home/admin/uni_parallel_computing/1_seminar/GUI_1_seminar/build/Desktop-Debug/CMakeFiles/rebuild_cache.dir
+/home/admin/uni_parallel_computing/1_seminar/GUI_1_seminar/build/Desktop-Debug/CMakeFiles/list_install_components.dir
+/home/admin/uni_parallel_computing/1_seminar/GUI_1_seminar/build/Desktop-Debug/CMakeFiles/install.dir
+/home/admin/uni_parallel_computing/1_seminar/GUI_1_seminar/build/Desktop-Debug/CMakeFiles/install/local.dir
+/home/admin/uni_parallel_computing/1_seminar/GUI_1_seminar/build/Desktop-Debug/CMakeFiles/install/strip.dir
+/home/admin/uni_parallel_computing/1_seminar/GUI_1_seminar/build/Desktop-Debug/CMakeFiles/GUI_1_seminar_autogen_timestamp_deps.dir
+/home/admin/uni_parallel_computing/1_seminar/GUI_1_seminar/build/Desktop-Debug/CMakeFiles/GUI_1_seminar_autogen.dir
